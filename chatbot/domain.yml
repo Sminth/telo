@@ -1,0 +1,276 @@
+version: '2.0'
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- salutations:
+    use_entities: false
+- thanks:
+    use_entities: false
+- allez_a:
+    use_entities: false
+- mal_tres:
+    use_entities: false
+- simple_salutations:
+    use_entities: false
+- odc_presentation:
+    use_entities: false
+- allez:
+    use_entities: false
+- demande:
+    use_entities: false
+- odc_programme:
+    use_entities: false
+- role:
+    use_entities: false
+- okok:
+    use_entities: false
+- visi:
+    use_entities: false
+- bureau_odc:
+    use_entities: false
+- nom:
+    use_entities: false
+- creation:
+    use_entities: false
+- aurevoir:
+    use_entities: false
+- lieu_creation:
+    use_entities: false
+- date_creation:
+    use_entities: false
+- age:
+    use_entities: false
+- services:
+    use_entities: false
+- role_responsable:
+    use_entities: false
+- salutation_avec_nom:
+    use_entities: 
+      - nom
+      - prenom
+- allez_au_bureau
+    # use_entities: true
+- presentation_responsable:
+    use_entities: 
+      - nom_section   
+- visite_responsable:
+    use_entities: 
+      - name_responsable
+- presentations_section: 
+    use_entities: 
+      - nom_section
+- horaires:
+    use_entities: false
+
+
+entities:
+- nom_prenom
+- nom_responsable
+- lieu
+- nom_section
+- name_responsable
+- nom
+- prenom
+slots:
+  nom_complet:
+    type: text
+    auto_fill: false
+    influence_conversation: false
+  nom_respo:
+    type: text
+    auto_fill: false
+    influence_conversation: false
+  lieu_indique:
+    type: text
+    auto_fill: false
+    influence_conversation: false
+  nom:
+    type: any
+  prenom:
+    type: any
+  nom_section:
+    type: any
+  
+  name_responsable:
+    type: any
+
+responses:
+  utter_bjr:
+  - text: Bonjour, bienvenue à l'orange digital center. Je suis telo votre assistant. Je suis à votre disposition pour vous guider dans l'enceinte de l'ODC, pour vous informer sur ses sections et ses activités. Votre nom s'il vous plaît ?
+
+  
+  utter_bjr_avec_nom:
+  - text: Bonjour {nom}, bienvenue à l'orange digital center. Je suis telo votre assistant. En quoi puis-je vous aider
+  
+
+  utter_demande:
+  - text: Je vais bien merci. En quoi puis-je vous aider ?
+  utter_aurevoir:
+  - text: Aurevoir, à bientôt.
+  utter_simple_salutations:
+  - text: D'accord Merci.
+  - text: Merci, c'est gentil.
+  - text: "Oh, c'est vraiment gentil merci."
+  utter_reso:
+  - text: Enchanté {nom_complet}, comment allez-vous ?
+  - text: 'Ravi de vous connaitre {nom_complet}, comment allez-vous '
+  - text: 'Bienvenue {nom_complet}, comment allez-vous '
+  utter_reso_avec_nom:
+  - text: Enchanté {nom} {prenom}, comment allez-vous ?
+  - text: 'Ravi de vous connaitre {nom} {prenom}, comment allez-vous '
+  - text: 'Bienvenue{nom} {prenom}, comment allez-vous '
+  utter_bien:
+  - text: Moi aussi je vais bien, comment puis-je vous aider ?
+  - text: Tant mieux, en quoi puis-je vous aider ?
+  utter_mal:
+  - text: Desolé, en quoi puis-je vous aider.
+  - text: navré, que puis-je faire pour vous
+  # utter_lieu_non_trouver:
+  # - text: desolé je ne sais pas ou se trouve le bureau de  {nom_respo}
+  utter_telo:
+  - text: 'oui'
+  utter_suivre:
+  - text: suivez moi s'il vous plaît.
+  utter_ok:
+  - text: ok
+  - text: cool
+  - text: d'accord
+  - text: super
+  utter_horaire:
+  - text: Nous sommes disponibles du lundi au vendredi de 08H à 17H sauf les jours fériés.
+
+  utter_visite: 
+  - text: vous souhaitez voir {name_responsable}.
+
+  utter_presentation_section: 
+  - text: vous souhaitez voir {name_responsable}.
+
+
+  utter_suivre_lieu:
+  - text: 'je vous conduis : {lieu_indique}'
+  utter_thanks:
+  - text: Je vous en prie.
+  - text: C'est gratuit.
+  utter_presentation_util:
+  - text: Merci.
+  utter_info_odc:
+  - text: Orange Digital Center (odc) est un centre d'accompagnement et de développement des compétences numériques.
+  utter_info_oda:
+  - text: L'orange digital academy (oda) est un  centre à vocation technologique qui propose des formations et des animations.
+  utter_info_fab:
+  - text: Orange fab est un  accélérateur de start-up qui accompagne les jeunes pousses et leur permet de développer des partenariats commerciaux nationaux et internationaux avec une ou plusieurs entités du groupe.
+  utter_info_ventures:
+  - text: Orange Ventures, fonds d'investissement pour financer les start-up innovantes.
+  utter_info_fablab:
+  - text: Le FabLab solidaire, atelier de fabrication numérique qui permet de prototyper les projets et d'apprendre en pratiquant.
+  utter_odc_presentation:
+  - text: L'Orange Digital Center est un centre d'accompagnement et de développement des compétences numériques. De la formation au codage à la création d'entreprise, il couvre un large champ d'activités. Gratuits et ouverts à tous, ce centre fonde l'apprentissage sur des projets concrets. Ainsi des programmes de formation dédiés aux métiers du digital sont proposés aux étudiants, personnes sans emploi, déscolarisés ou jeunes diplômés.
+  # utter_manager:
+  # - text: le manager de l orange digital academy est Léonce Koné
+  # - text: Léonce koné est le manager de l orange digital academy
+  # utter_manager_senior:
+  # - text: le manager senior de l'orange digital center est Franck Wodié
+  # - text: Franck Wodié est le manager senior de l orange digital center
+  # utter_emploi_odc:
+  # - text: Actuellemnt, nous n'avons pas d'offres disponibles
+
+  utter_emploi_oda:
+  - text: L'orange digital academy fait des stages 
+  utter_role:
+  - text: je suis un guide au sein de l'orange digital Center, je peux vous diriger dans le bureau d'une personne, je peux vous montrer l'orange fab, l'orange fablab et l'orange digital academy.
+  utter_visi:
+  - text: bonjour, en quoi puis-je vous aider ?
+  - text: comment puis-je vous aider ?
+
+
+  utter_pretelo:
+  - text: "Je suis Telo, j'ai été créé par les academiciens de la troisième cohorte de l'orange digital academy a l'orange digital academy"
+
+
+  utter_nom:
+  - text: "Je suis Telo."
+  - text: "Mon nom est Telo."
+  - text: "Je me nomme Telo."
+  - text: "Je m'appelle Telo."
+
+  utter_creation:
+  - text: "J'ai été créé par les academiciens de la troisième cohorte de l'orange digital academy."
+  - text: "J'ai été concu par les academiciens de la troisième cohorte de l'orange digital academy."
+  
+  utter_date_creation:
+  - text: "J'ai été créé le 10 Avril 2021 à l'orange digital Academy."
+  - text: "J'ai vu le jour le 10 Avril 2021 à l'orange digital Academy"
+ 
+  utter_lieu_creation:
+  - text: "J'ai été concu a l' orange digital academy"
+
+  utter_age:
+  - text: "Disons que je ne suis pas né d'hier."
+  - text: "Je n'ai pas vraiment de date d'anniversaire mais j'ai commencé l'assistance depuis le 10 Avril 2021"
+  utter_info:
+  - text: Did that help you?
+  utter_default:
+  - text: Desolé, je n'ai pas compris votre intention.
+  utter_mauvais_nom:
+  - text: Veuillez renseigner un nom correct.
+  # utter_ask_recuperation_du_form_nom_complet:
+  # - text: votre nom svp ?
+  utter_ask_responsable_du_form_nom_respo:
+  - text: oui
+  utter_test_bot:
+  - text: hey djo tu es là
+  utter_franck: 
+  - text: "Monsieur Franck Wodié est le manager Senior de l'Orange Digital Center."
+  utter_leonce:
+  - text: "Monsieur Léonce Koné est le manager de l'Orange Digital Center."
+  utter_bamba:
+  - text: "Monsieur Habib Bamba est le directeur de la transformation du digital, des médias et directeur de la fondation orange côte d'ivoire."
+  # utter_choixsection:
+  #     - text: "Quelle section souhaitez-vous decouvrir ?"
+  #       custom:
+  #         payload: quickReplies
+  #         data:
+  #         - title: ODA
+  #           payload: oda
+  #         - title: FABLAB
+  #           payload: fablab
+  #         - title: ORANGE VENTURES
+  #           payload: orange venture
+  #         - title: ORANGE SOLIDAIRE
+  #           payload: orange solidaire
+
+  utter_test_api:
+  - image: '{monimg}'
+    text: '{descript}'
+  utter_probleme:
+  - text: Pour éviter toute confusion, pouvez vous choisir le nom de la personne souhaitée ?
+
+  utter_programme:
+  - text: L'orange digital center a en son sein differents programmes a savoir l'orange Digital Academy, un FabLab Solidaire, un orange fab et un orange ventures.
+actions:
+# - action_appel_api
+- action_entity_extract
+- validate_recuperation_du_form
+# - validate_responsable_du_form
+- service_oda
+- respo_odc
+- section
+- action_presentation_responsable
+- action_visite_resp
+- action_bonjour
+# - get_nom
+- api
+- action_programme
+- avec_nom
+forms:
+  recuperation_du_form:
+    nom_complet:
+    - entity: nom_prenom
+      type: from_entity
+    - type: from_text
+  responsable_du_form:
+    nom_respo:
+    - entity: nom_responsable
+      type: from_entity
+    - type: from_text

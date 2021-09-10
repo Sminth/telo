@@ -1,0 +1,30 @@
+|------------ ------------  Ajouter spacy ------------ ------------|
+python -m spacy download fr_core_news_md
+python -m spacy link fr_core_news_md fr
+rasa train
+
+
+Create your own moel and bind with spacy
+https://blog.rasa.com/custom-spacy-components/
+|------------ ------------  Kill element if error of port occured ------------ ------------|
+
+sudo kill -9 `sudo lsof -t -i:5055`
+
+
+
+|------------ ------------  Run rasa ui ------------ ------------|
+rasa run actions
+reasa open the index.html file in your browser
+
+rasa run -m models --enable-api --cors "*" --debug
+
+---- see the interaction result 
+rasa shell nlu (to see the nlu)
+
+
+
+
+
+
+
+|------------ ------------  Create action to extract entity------------ ------------|
