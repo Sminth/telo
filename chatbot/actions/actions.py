@@ -33,7 +33,7 @@ class ActionHelloWorld(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        dispatcher.utter_message(text="Bonjour à tous, ceci est ma première action.")
+        dispatcher.utter_message(text="Bonjour à tous.")
         return []
 
 
