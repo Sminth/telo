@@ -1,0 +1,26 @@
+			cd C:\laragon\www\teloWeb\js &
+node server.js
+
+
+cd C:\Users\HP\Documents\teloApi &
+.\venv\Scripts\activate &
+flask run --host=192.168.252.40 --port=6400
+
+
+
+
+cd C:\Users\HP\Documents\voice_code\simplo &	
+.\cyndi\Scripts\activate &
+python main.py
+
+
+cd C:\Users\HP\Documents\chatbot &
+.\venv\Scripts\activate &
+rasa run actions
+
+
+
+cd C:\Users\HP\Documents\chatbot &
+.\venv\Scripts\activate &
+rasa run --enable-api --cors "*" --debug
+

@@ -1,0 +1,512 @@
+version: "2.0"
+nlu:
+- intent: salutations
+  examples: |
+    - bonjour
+    - bjr
+    - slt
+    - lu
+    - lup
+    - bonsoir
+    - bsr
+    - coucou
+    - bonjour, comme  nt tu vas?
+    - coucou, comment tu vas?
+    - salut on dit quoi?
+
+
+- intent:  salutation_avec_nom
+  examples: |
+    - slt je suis [kabore](nom) [lolipop](prenom)
+    - slt je suis [kabore](nom) [lolipop](prenom)
+    - bonjour je m appelle [sminth](nom) [malan](prenom)
+    - salut je suis [Malan](nom) [Emmanuel](prenom)
+    - salut je suis [Malan](nom) [Emmanuel](prenom)
+    - bonsoir je suis [latifate](nom) [kabore](prenom)
+    - salut je suis [latifate](nom) [kabore](prenom)
+    - bonjour je me nomme [telo](nom) [kabore](prenom)
+    - bonjour je suis [latifate](nom) [kabore](prenom)
+    - bonjour mon nom est [kabore](nom) [latifate](prenom)
+    - bonjour mon nom est [dijigo](nom) [roxane](prenom)
+    - salut mon nom est [kabore](nom) [latifate](prenom)
+    - salut mon nom est [djigo](nom) [roxane](prenom)
+    - bonjour je m'appelle  [kabore](nom) [latifate](prenom)
+    - bonjour je me nomme [telo](nom) [kabore](prenom)
+    - je suis  [kabore](nom) [lolipop](prenom)
+    - je m'appelle [djigo](nom) [roxane](prenom)
+    - je me nomme  [Malan](nom) [lolipop](prenom)
+
+- intent: simple_salutations
+  examples: |
+    - Juste te dire Bonjour
+    - Juste te dire bonsoir
+    - C'était ton petit bonjour
+    - C'était un bonsoir
+    - C'était ton petit bonsoir
+    - C'était un bonjour 
+    - Rien pour le moment 
+    - Juste te souhaiter un bon après-midi 
+    - Juste te souhaiter une bonne soirée
+
+
+- regex: nom
+  examples:  |
+    - [a-zA-Z0-9èéôê]+
+
+- regex: prenom
+  examples:  |
+    - [a-zA-Z0-9èéôê]+
+
+# - regex: nom_prenom
+#   examples:  |
+#     - [a-zA-Z0-9]+
+
+
+- intent: visi
+  examples: |
+    - je suis un visiteur
+    - je suis ici pour visiter 
+    - je suis la pour une visite
+    - je viens visiter
+    - je viens pour une visite
+    - je suis présent pour visiter 
+    - J'aimerais visiter
+    - je viens faire une visite
+    - je suis présent en tant que visiteur
+    - Pouvez-vous me faire visiter
+    - Puis-je visiter
+  
+- intent: role
+  examples: |
+    - Que sais tu faire?
+    - Qu'est ce que tu es  en capacité dde faire ?
+    - Quel est votre rôle?
+    - puis-je savoir ton rôle
+    - qu'est ce que tu es capable de faire
+    - quelle sont tes capacités?
+    - tes capacités sont lesquelles?
+    - Qui êtes vous?
+    - Qui es tu?
+    - Quelles sont tes fonctionnalités ?
+    - Que fais tu ici?
+    - Peux tu m'expliquer ton rôle?
+    - Pouvez vous m'expliquer votre rôle?
+    - Que fais tu ici?
+    - Que faites vous ici?
+    - Quel est ton rôle ici?
+    - Quel est votre rôle ici?
+    - Qu'es tu capable de faire ?
+    - ton rôle
+
+
+    
+- intent: aurevoir
+  examples: |
+    - aurevoir
+    - a bientot
+    - a la prochaine
+    - a plus
+    - bye
+    - goodbye
+    - bye bye
+    - aurevoir robot
+    - a bientot robot
+    - a la prochaine robot
+    - aurevoir telo
+    - a bientot telo
+    - a la prochaine telo
+    - ciao robot
+    - tchao
+    - à nous revoir
+    - A plus tard
+
+
+- intent: demande
+  examples: |
+    - comment tu vas?
+    - comment vas tu?
+    - comment vous allez?
+    - comment allez vous?
+    - telo, comment vas tu?
+    - telo, comment allez vous?
+    - comment vas tu telo?
+    - comment allez vous telo?
+    - comment vas tu robot?
+    - comment allez vou robot?
+    - cava?
+    - cava robot?
+    - cava telo?
+    - on dit quoi telo?
+    - on dit quoi robot?
+    - tu vas bien?
+    - allez vous bien?
+    - tu vas bien telo?
+    - tu vas bien robot?
+    - allez vous bien telo?
+    - allez vous bien robot?
+    - vous allez bien ?
+    - vous vous portez bien ?
+
+
+- intent: mal_tres
+  examples: |
+    - mal
+    - je vais mal
+    - ca va pas 
+    - ca va pas trop
+    - j'ai un probleme
+    - je ne suis pas d'humeur
+    - je suis déchargé
+    - je manque d'énergie
+    - je suis énervé
+    - je vais très mal
+    - je vais super mal
+    - je ne vais pas du tout bien
+    - je ne vais vraiment pas bien
+    - je ne suis pas bien
+    - ça ne vas trop?
+    - je ne le sens pas trop
+    - j'ai un souci
+    - je suis à bout de nerf
+    - je ne suis pas trop en forme
+    - j'ai un petit soucis de santé
+    - Je suis mal au point
+    
+
+- intent: allez
+  examples: |
+    - bien
+    - tres bien
+    - je vais bien
+    - ca va
+    - super bien merci et toi?
+    - super bien merci et vous?
+    - super bien et toi?
+    - super bien et vous?
+    - la pleine forme et toi?
+    - la pleine forme et vous?
+    - je vais excellemment bien et toi? 
+    - je vais excellemment bien et vous?
+    - je vais bien merci 
+    - je vais bien et vous
+
+
+- intent: okok
+  examples: |
+    - ok
+    - cool
+    - d accord
+    - bien
+    - super
+ 
+
+# - intent: telo_form
+#   examples: |
+#     - dit telo
+#     - he telo
+#     - dis telo
+#     - telo
+#     - tello
+#     - thelon
+#     - oscar
+#     - tino
+#     - je suis un visiteur
+#     - j'ai besoin d'un guide
+#     - peux-tu me guider
+#     - peux-tu m'accompagner
+#     - est-ce que tu peux m' accompagner
+#     - j'ai besoin de renseignement
+#     - je suis un visiteur et j'ai besoin de renseignement
+#     - peux tu me donner des informations
+#     - je suis là pour un renseignement 
+#     - je suis là pour une visite
+#     - je suis là pour un rendez-vous 
+#     - je suis présent pour un renseignement 
+#     - je suis présent pour une visite
+#     - je suis présent pour un rendez-vous 
+#     - je suis un employé d'orange
+#     - je suis d'Orange 
+#     - je suis de la DRH d'Orange
+#     - je suis de la direction marketing d'orange
+#     - je suis un interne d'orange
+#     - je suis responsable d'une direction d'Orange
+#     - je viens d'un département d'
+#     - je veux voir
+
+  
+- intent: thanks
+  examples: |
+    - c'est gentil
+    - merci
+    - merci télo
+    - merci beaucoup
+    - je te remercie
+    - je vous remercie
+    - tous mes remerciements
+    - tous mes remerciements telo
+    - mes remerciements telo 
+    - merci robot
+    - Mes remerciements
+    - merci infiniments
+    - tu es le meilleurs
+
+- intent: my_name
+  examples: |
+    - moi c'est [ashish](name)
+    - je me nomme [ashish](name)
+    - mon nom est [ashish](name)
+    - je m'appelle [ashish](name)
+    - je suis [ashish](name)
+
+
+- intent: allez_au_bureau
+  examples: |
+    - je veux aller au bureau de 
+    - peux tu me conduis chez 
+    - indique moi chez 
+    - conduis moi chez 
+    - montre moi le bureau de 
+    - conduis moi au bureau de
+    - indique moi le bureau de
+
+
+
+
+- intent: odc_presentation
+  examples: |
+    - qu'est ce que l'orange digital center?
+    - presentez moi l'odc
+    - parlez moi de l'odc
+    - présente moi l'odc
+    - peux tu me donner des informations sur l'orange digital center?
+    - puis je avoir des informations sur l'orange digital center?
+    - j'ai besoin de renseignement sur l'orange digital center
+    - peux tu me donner plus d'informations sur l'odc?
+    - peux tu me présenter l'odc?
+    - renseigne moi sur l'odc?
+    - peux tu me donner des informations sur l'odc?
+    - puis je avoir des informations sur l'odc?
+    - j'ai besoin de renseignement sur l'odc
+    - renseigne moi sur l'odc
+    - renseigne moi sur l'orange digital center
+    - peux tu me donner plus d'informations sur l'orange digital center?
+    - peux tu me présenter l'orange digital center?
+    - renseigne moi sur l'orange digital center?
+    - Comment fonctionne l'orange digital center?
+    - C'est quoi l'odc?
+    - J'aimerias savoir, c'est quoi l'odc?
+    - Je veux savoir, c'est quoi l'odc?
+    - odc
+    - C'est quoi l'orange digital center?
+    - Comment fonctionne l'odc?
+
+
+
+- intent: odc_programme
+  examples: |
+    - parle moi des sections de l'orange digital center
+    - parle moi des sections qui existe au sein de l' odc
+    - Quel sont les programmes de l'odc?
+    - combien de programmes disposent l'odc?
+    - Peux tu me faire part les activites qui se font a orange digital center ?
+    - Peux tu me dire les activites qui se font a orange digital center ?
+    - Peux tu renseigner sur les activites qui se font a orange digital center ?
+    - les differentes branches de l'odc?
+    - peux tu citer les differents programmes de l'odc?
+    - quels sont les differents programme de l'odc?
+    - quels sont les services de l'odc?
+    - quels sont les principaux services de l'odc?
+    - peux tu me présenter les services de l'odc?
+    - peux tu me présenter les différents services de l'odc?
+    - quels sont les principales offres de l'odc?
+    - quels sont les offres principales de l'odc?
+    - donne moi des informations sur l'odc
+    - donne moi des renseignements sur l'odc
+    - donne moi des informations sur l'orange digital center 
+    - peux tu me présenter les services de l'orange digital center?
+    - peux tu me présenter les différents services de l'orange digital center?
+    - a quoi sert l'orange digital center?
+    - quels sont les services de l'orange digital center?
+    - quels sont les principaux services de l'orange digital center?
+    - quels sont les principales offres de l'orange digital center?
+    - quels sont les offres principales de l'orange digital center?
+    - parle nous des programmes de l' odc
+    - parle nous des programmes de l' orange digital center
+  
+
+- intent: date_creation
+  examples: |
+    - Quand as tu été créé?
+    - A quelle date as tu été créé ?
+    - A quel moment as tu été créé?
+    - Tu as été créé quand?
+    - Quand es ce que as tu vu le jour?
+    - Quelle est ta date de création?
+    - Quelle est ta date de création?
+    - Quand es tu néé?
+    - Tu es née quand?
+   
+- intent: lieu_creation
+  examples: |
+    - Ou as tu été créé?
+    - Ou as tu vu le jour ?
+    - Dans quel endroit est tu née?
+    - Dans quel lieu est tu née?
+
+- intent: age
+  examples: |
+    - Quel age as tu?
+    - Quel est ton age ?
+    - Tu as quel age?
+    - Quel age as tu?
+    - Quel age avez vous?
+    - Quel est votre age?
+
+
+- intent: telo_presentation
+  examples: |
+    - presente toi 
+    - dit moi tout sur toi
+    - parle nous de toi
+    - peux tu te presenter
+    
+
+
+- intent: role_responsable
+  examples: |
+    - Qui est [Léonce Koné](name_responsable)    
+    - Qui est [Didier Any](name_responsable)
+
+    - Qui est [léonce koné](name_responsable)
+    - Qui est [Franck Wodié](name_responsable)
+    - Qui est [franck wodié](name_responsable)
+    - Qui est [Habib Bamba](name_responsable)
+    - Qui est [habib bamba](name_responsable)
+    - Quel est la fonction de [Léonce Koné](name_responsable)
+    - Quel est la fonction de [Didier Any](name_responsable)
+    - Quel est la fonction de [léonce koné](name_responsable)
+    - Quel est la fonction de [Franck wodié](name_responsable)
+    - Quel est la fonction de [franck wodié](name_responsable)
+    - Quel est la fonction de [Habib Bamba](name_responsable)
+    - Quel est la fonction de [habib bamba](name_responsable)
+    - Que faire [Léonce Koné](name_responsable) au sein de l'ODC
+    - Que faire [Didier Any](name_responsable) au sein de l'ODC
+    - Que faire [léonce koné](name_responsable) au sein de l'ODC
+    - Que faire [Franck Wodié](name_responsable) au sein de l'ODC
+    - Que faire [franck wodié](name_responsable) au sein de l'ODC
+    - Que faire [Habib Bamba](name_responsable) au sein de l'ODC
+    - Que faire [habib bamba](name_responsable) au sein de l'ODC
+    - Quel poste occupe [Léonce Koné](name_responsable) à l'ODC
+    - Quel poste occupe [Didier Any](name_responsable) à l'ODC
+    - Quel poste occupe [léonce koné](name_responsable) à l'ODC
+    - Quel poste occupe [Franck Wodié](name_responsable) à l'ODC
+    - Quel poste occupe [franck wodié](name_responsable) à l'ODC
+    - Quel poste occupe [Habib Bamba](name_responsable) à l'ODC
+    - Quel est le role de [Léonce Koné](name_responsable) à l'ODC
+    - Quel est le role de [Didier Any](name_responsable) à l'ODC
+    - Quel est le role de [Franck Wodié](name_responsable) à l'ODC
+    - Quel est le role de [Habib Bamba](name_responsable) à l'ODC
+    - Quel sont les fonctions de [Léonce Koné](name_responsable) à l'ODC
+    - Quel sont les fonctions de [Franck Wodié](name_responsable) à l'ODC
+    - Quel sont les fonctions de [Habib Bamb](name_responsable) a à l'ODC
+    - Quel sont les fonctions de [Didier Any](name_responsable) a à l'ODC
+
+
+
+- intent: presentation_responsable
+  examples: |
+    - parle nous du responsable du [digital Academy](nom_section)
+    - parle nous du responsable du [ventures](nom_section)
+    - parle nous du responsable du [fab](nom_section)
+    - parle nous du responsable du [fablab](nom_section)
+    - qui est le responsable du [ventures](nom_section)
+    - qui est le responsable du [fablab](nom_section)
+    - qui est le responsable du [fab](nom_section)
+    - qui est le responsable du [digital Academy](nom_section)
+    - donne moi le nom du responsable du [ventures](nom_section)
+    - donne moi le nom du responsable du [fablab](nom_section)
+    - donne moi le nom du responsable du [fab](nom_section)
+    - donne moi le nom du responsable du [digital Academy](nom_section)
+    - donne moi les informations sur responsable du [ventures](nom_section)
+    - donne moi les informations sur responsable du [digital Academy](nom_section)
+    - donne moi les informations sur responsable du [fab](nom_section)
+    - donne moi les informations sur responsable du [fablab](nom_section)
+
+
+- intent: visite_responsable
+  examples: |
+    - je souhaite voir [Léonce Koné](name_responsable)
+    - je souhaite voir [Franck wodié](name_responsable)
+    - je souhaite voir [Léonce Koné](name_responsable)
+    - je souhaite voir [Franck wodié](name_responsable)
+    - je souhaite voir [Léonce Koné](name_responsable)
+    - je veux voir [Léonce Koné](name_responsable)
+    - je veux voir [Franck wodié](name_responsable)
+    - je veux voir [Léonce Koné](name_responsable)
+    - je veux voir [Franck wodié](name_responsable)
+    - je veux aller au [fab](name_section)
+    - je veux aller au [fablab](name_section)
+    - je veux aller au [fab](name_section)
+    - indique moi le [fab](name_section)
+    - indique moi le [fab](name_section)
+    - indique moi l'orange [digital Academy](name_section)
+
+
+- intent: presentations_section
+  examples: |
+    - parle nous de orange [digital Academy](nom_section)
+    - explique moi ce qu'on fait a  [digital Academy](nom_section)
+    - parle nous du  [digital Academy](nom_section)
+    - c'est quoi le [digital Academy](nom_section)
+    - [digital Academy](nom_section) c'est quoi'
+    - parle nous de orange [fablab](nom_section)
+    - explique moi ce qu'on fait a l orange [fablab](nom_section)
+    - explique moi ce qu'on fait a  [fablab](nom_section)
+    - parle nous [fablab](nom_section)
+    - c'est quoi [fablab](nom_section)
+    - [fablab](nom_section) c'est quoi
+    - parle nous [ventures](nom_section)
+    - c'est quoi [ventures](nom_section)
+    - [ventures](nom_section) c'est quoi
+
+- regex: nom_section
+  examples:  |
+    - /(venture|digital academy|fab|fablab|academy)/gi
+
+
+- intent: nom
+  examples: |
+    - Quel est votre nom svp?
+    - Comment t'appele tu?
+    - ton nom stp?
+    - votre nom
+    - ton nom
+    - nom
+    - comment tu t'appelle?
+    - Qui est tu ?
+    - Qui est vous ?
+    - vous etes?
+    - votre nom?
+    - ton nom stp?
+    - tu t'appelle?
+
+
+- intent: creation
+  examples: |
+    - Qui t'a créé?
+    - Qui sont tes createurs?
+    - Qui sont ceux qui t'ont créé?
+    - Tu as été créé par qui ?
+    - Par qui as tu vu le jour?
+    - Qui sont tes concepteurs?
+    - Par qui as tu été créé?
+    - Qui sont tes concepteurs?
+    - Qui est ton concepteur ?
+    - Qui est ton createur?
+    - Qui est celui qui t'a créé?
+
+- intent: horaires
+  examples: |
+    - donne moi les horaires d ouvertures de l'odc
+    - quelles sont les horaires d'ouverture de l'orange digital center
+    - donne moi les heures de travail de l'odc

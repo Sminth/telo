@@ -1,0 +1,11 @@
+node /var/www/html/teloWeb/js/server.js 
+
+cd /home/telo/Documents/teloApi/
+source ./venv/bin/activate
+flask run --host=0.0.0.0 --port=6400
+
+cd /home/telo/Documents/chatbot/
+source ./venv/bin/activate
+rasa run actions
+--
+rasa run --enable-api --cors "*" --debug
