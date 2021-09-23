@@ -28,6 +28,7 @@ class SongController(object):
             time.sleep(1)
     def start_song(self):
         playsound(self.files[self.stepper])
+        print("continue")
         # player.play()
         """while self.stepper < len(self.files):
 
