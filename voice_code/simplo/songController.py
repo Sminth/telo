@@ -27,8 +27,8 @@ class SongController(object):
         if(self.control=="pause") : self.p.terminate()
     def run(self):
         
-        if(self.control=="play"):
-                self.start_song()
+        while(self.control!="play"): time.sleep(1)
+        self.start_song()
             # time.sleep(1)
     def start_song(self):
         self.p = multiprocessing.Process(target = playsound, args = (self.files[self.stepper],))
