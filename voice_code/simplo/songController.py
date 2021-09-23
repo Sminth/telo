@@ -10,7 +10,7 @@ class SongController(object):
         pygame.init()
         pygame.mixer.init()
         self.stepper = 0
-        self.control="pause"
+        self.control="paus"
         with open('song',"w") as f: f.write("paus")
         threading.Thread(target=self.isPaused).start()
         threading.Thread(target=self.run).start()
