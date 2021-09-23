@@ -27,8 +27,8 @@ class SongController(object):
             time.sleep(1)
     def start_song(self):
         while self.stepper < len(self.files):
-            pygame.mixer.music.load(self.files[self.stepper])
             print("Playing:",self.files[self.stepper])
+            pygame.mixer.music.load(self.files[self.stepper])
             self.stepper += 1
             pygame.mixer.music.play()
 #play and pause
