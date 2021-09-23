@@ -32,9 +32,9 @@ class SongController(object):
             print("Playing:",self.files[self.stepper])
             player = AudioPlayer(self.files[self.stepper])
             player.play()
-            if self.control == "pause": player.pause()
-            elif self.control == "play" : player.unpause()
-            else: continue
+            # if self.control == "pause": player.pause()
+            # elif self.control == "play" : player.unpause()
+            # else: continue
             """
             pygame.mixer.music.load(self.files[self.stepper])
             self.stepper += 1
