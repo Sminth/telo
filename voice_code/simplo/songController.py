@@ -1,6 +1,6 @@
 import pygame
 import threading
-import time
+import time,os
 
 class SongController(object):
     def __init__(self):
@@ -28,9 +28,11 @@ class SongController(object):
     def start_song(self):
         while self.stepper < len(self.files):
             print("Playing:",self.files[self.stepper])
-            pygame.mixer.music.load(self.files[self.stepper])
+            #pygame.mixer.music.load(self.files[self.stepper])
+            my_song = pygame.mixer.sound(os.path.join("./musiques", 'beethoven.mp3'))
+            my_song.play()
             self.stepper += 1
-            pygame.mixer.music.play()
+            # pygame.mixer.music.play()
 #play and pause
             while pygame.mixer.music.get_busy():
                 timer = pygame.mixer.music.get_pos()
