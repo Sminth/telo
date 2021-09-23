@@ -2,7 +2,7 @@ import pygame
 import threading
 import time
 from audioplayer import AudioPlayer
-
+from playsound import playsound
 class SongController(object):
     def __init__(self):
         self.files = ['musiques/beethoven.mp3','musiques/mozart.mp3']
@@ -27,8 +27,8 @@ class SongController(object):
                 self.start_song()
             time.sleep(1)
     def start_song(self):
-        player = AudioPlayer(self.files[self.stepper])
-        player.play()
+        playsound(self.files[self.stepper])
+        # player.play()
         """while self.stepper < len(self.files):
 
             print("Playing:",self.files[self.stepper])
