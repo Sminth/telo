@@ -27,7 +27,7 @@ f = open("../../ipVenv","r")
 sio = socketio.Client()
 try:
 	sio.connect('http://'+f.read()+':9400', namespaces=['/speech'])
-    print('my sid is', sio.sid)
+    
 except Exception as e:
     print(e)
     print("connexion non etablie")
