@@ -2,6 +2,7 @@ import pygame
 import threading
 import time
 from audioplayer import AudioPlayer
+import multiprocessing
 from playsound import playsound
 class SongController(object):
     def __init__(self):
@@ -10,7 +11,7 @@ class SongController(object):
         pygame.mixer.init()
         self.stepper = 0
         self.control="pause"
-        with open('song',"w") as f: f.write("pause")
+        with open('song',"w") as f: f.write("paus")
         threading.Thread(target=self.isPaused).start()
         threading.Thread(target=self.run).start()
         threading.Thread(target=self.verif).start()
@@ -22,15 +23,17 @@ class SongController(object):
            with open("song", 'r') as f: 
                self.control=f.read()
     def verif(self):
-        if(self.control=="play") : playsound(True)
-        if(self.control=="pause") : playsound(False)
+        # if(self.control=="play") :playsound()
+        if(self.control=="pause") : self.p.start()
     def run(self):
         while 1:
             if(self.control=="play"):
                 self.start_song()
             time.sleep(1)
     def start_song(self):
-        playsound(self.files[self.stepper])
+        self.p = multiprocessing.Process(target = playsound, args = ('music.mp3',))
+
+        # playsound(self.files[self.stepper])
         print("continue")
         # player.play()
         """while self.stepper < len(self.files):
