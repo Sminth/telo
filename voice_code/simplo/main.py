@@ -15,7 +15,7 @@ import signal
 import requests
 
 f = open("../../ipVenv","r")
-print(f.read())
+print(f.readline())
 #threading.Thread(target= lambda: requests.get("http://10.3.141.56/bad",timeout=1)).start()
 # requests.get("http://10.106.5.135/bad",timeout=1)
 
