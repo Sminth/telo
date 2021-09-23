@@ -13,6 +13,7 @@ class SongController(object):
         with open('song',"w") as f: f.write("pause")
         threading.Thread(target=self.isPaused).start()
         threading.Thread(target=self.run).start()
+        threading.Thread(target=self.verif).start()
 
 
     def isPaused(self):
@@ -20,7 +21,9 @@ class SongController(object):
            time.sleep(1)
            with open("song", 'r') as f: 
                self.control=f.read()
-
+    def verif(self):
+        if(self.control=="play") : playsound(True)
+        if(self.control=="pause") : playsound(False)
     def run(self):
         while 1:
             if(self.control=="play"):
