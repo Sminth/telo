@@ -27,11 +27,13 @@ class SongController(object):
                 self.start_song()
             time.sleep(1)
     def start_song(self):
-        while self.stepper < len(self.files):
+        player = AudioPlayer(self.files[self.stepper])
+        player.play()
+        """while self.stepper < len(self.files):
 
             print("Playing:",self.files[self.stepper])
             player = AudioPlayer(self.files[self.stepper])
-            player.play()
+            player.play()"""
             # if self.control == "pause": player.pause()
             # elif self.control == "play" : player.unpause()
             # else: continue
