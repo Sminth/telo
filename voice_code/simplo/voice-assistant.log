@@ -25271,3 +25271,43 @@ INFO:root:Impossible de reconnaitre la parole
 INFO:root:transcription en cours
 INFO:root:Impossible de reconnaitre la parole
 INFO:root:transcription en cours
+INFO:root:debut
+INFO:root:debut
+INFO:root:transcription en cours
+INFO:root:Impossible de reconnaitre la parole
+INFO:root:transcription en cours
+INFO:root:Impossible de reconnaitre la parole
+INFO:root:transcription en cours
+INFO:root:Impossible de reconnaitre la parole
+INFO:root:transcription en cours
+INFO:root:Impossible de reconnaitre la parole
+ERROR:root:ERROR :connection au serveur rasa impossible 
+ERROR:root:Une erreur s'est produite dans le serveur Rasa et il n'y a aucun message à afficher.
+INFO:root:transcription en cours
+INFO:root:Impossible de reconnaitre la parole
+INFO:root:transcription en cours
+INFO:root:Impossible de reconnaitre la parole
+INFO:root:transcription en cours
+INFO:root:Impossible de reconnaitre la parole
+INFO:root:debut
+INFO:root:debut
+INFO:root:transcription en cours
+INFO:root:debut
+INFO:root:debut
+INFO:root:debut
+INFO:root:transcription en cours
+INFO:root:Impossible de reconnaitre la parole
+INFO:root:transcription en cours
+INFO:root:debut
+INFO:root:debut
+INFO:root:debut
+INFO:root:debut
+INFO:root:debut
+INFO:root:transcription en cours
+INFO:root:Impossible de reconnaitre la parole
+INFO:root:debut
+INFO:root:transcription en cours
+INFO:root:debut
+INFO:root:Playing speech segment (fr): 'je parle hum, attention'
+INFO:root:debut
+INFO:root:Playing speech segment (fr): 'je parle hum, attention'

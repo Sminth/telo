@@ -34,6 +34,8 @@ if __name__ == "__main__":
     logging.info('debut')
     
     dialog = Dialog()
+    dialog.SpeakText("je parle hum, attention")
+    print("a parler")
     audio_recorder = AudioRecorder(dialog)
     # face = FaceRecognition(audio_recorder)
     main()

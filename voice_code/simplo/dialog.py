@@ -122,7 +122,7 @@ class Dialog():
     def SpeakText(self,command):
         self.en_lecture = True
         with open("is_lecture", "w") as f : f.write("True")
-       	engine = pyttsx3.init()
+       	"""engine = pyttsx3.init()
         if engine._inLoop:
             engine.endLoop()
         engine = pyttsx3.init()
@@ -132,9 +132,9 @@ class Dialog():
                 engine.setProperty('voice', voice.id)
         engine.setProperty("rate",120)
         engine.say(command) 
-        engine.runAndWait()
-        """speech = Speech(command, "fr")
-        speech.play()"""
+        engine.runAndWait()"""
+        speech = Speech(command, "fr")
+        speech.play()
         self.en_lecture = False 
         with open("is_lecture", "w") as f : f.write("False")
     def process_user_message(self):
