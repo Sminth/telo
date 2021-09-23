@@ -13,11 +13,27 @@ new Vue({
             avancer:0,
             gauche:0,
             droite:0,
-            message_erreur:""
+            message_erreur:"",
+            message:""
         }
    
     },
     methods :{
+      send_msg1(){
+        axios.get("http://192.168.252.237:6400/api/parler/salut, je suis Telo, un robot conçu par les academiciens de l'orange digital center, grâce à qui j'apprends chaque jour de nouvelles choses .")
+        .then(function (response) { console.log(response);}).catch(function (error) {console.log(error);});
+      },
+      send_message(){
+        axios.get('http://192.168.252.237:6400/api/parler/'+this.message)
+        .then(function (response) {
+          // handle success
+          console.log(response);
+        })
+        .catch(function (error) {
+          // handle error
+          console.log(error);
+        });
+      },
         lol(){
             console.log(this.mode_deplacement)
             this.mode_deplacement = "false",

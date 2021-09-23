@@ -157,7 +157,6 @@ def speak_info_section(data):
     sio.emit('speak-section', data, namespace='/api')
     return data
 
-
 @app.route("/api/personnel/add", methods=['POST'])
 def post_tasks():
     data = request.get_json()

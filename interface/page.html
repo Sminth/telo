@@ -179,16 +179,16 @@
                   <!-- <p>The following demo shows how to build and style a custom toggle switch using a semantic checkbox.</p> -->
               </div>
               <div class="frae">
-                <button  id="button" class="custom-btn btn-3"><span>D. Telo</span></button> 
+                <button v-on:click="send_msg1"  id="button" class="custom-btn btn-3"><span>P. Telo</span></button> 
                 <button id="button" class="custom-btn btn-4 ml-5"><span>D. ODC</span></button> <br> <br> <br>
             </div>
             <div class="form-group ">
               <label for="gauche" class="">Message ( facultatif )</label> <br>
-              <textarea name="" id="" cols="80" rows="2"></textarea>
+              <textarea v-model="message" name="" id="" cols="80" rows="2"></textarea>
               <!-- <input type="text" class="form-control is-valid col-3" id="gauche" > <br> -->
               <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
             </div>
-            <button type="submit" class="btn btn-outline-dark">Executer</button>
+            <button type="submit" v-on:click="send_message" class="btn btn-outline-dark">Executer</button>
             <br><br>
            
           </form>
