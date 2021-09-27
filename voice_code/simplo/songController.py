@@ -58,10 +58,10 @@ class SongController(object):
                     timer = pygame.mixer.music.get_pos()
                     timer = timer/1000
                     print (str(timer))"""
-                    """elif int(timer) > 10:
-                    print ("True")
-                    pygame.mixer.music.stop()
-                    break
-                else: continue"""
+                    #elif int(timer) > 10:
+                    #print ("True")
+                    #pygame.mixer.music.stop()
+                    #break
+                #else: continue"""
 
 #SongController()
