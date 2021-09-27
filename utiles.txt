@@ -1,0 +1,9 @@
+fuser /dev/ttyUSB0 -k #kill process 
+sudo lsof /dev/ttyUSB0 #display all 
+
+
+#afficher les ports utiliser
+import serial.tools.list_ports
+for port, desc, hwid in sorted(ports):
+...         print("{}: {} [{}]".format(port, desc, hwid))
+

@@ -23,10 +23,21 @@ print("http://" + ip + ":9400")
 
 #Serial Port communication
 try:
-	serialcomm = serial.Serial('/dev/ttyUSB1', 9600)
+	serialcomm = serial.Serial('/dev/ttyUSB0', 9600)
 	serialcomm.timeout = 1
+except ExplicitException:
+    print("ttyUSB0 indisponible")
+try:
+    serialcomm = serial.Serial('/dev/ttyUSB1', 9600)
+    serialcomm.timeout = 1
+except ExplicitException:
+    print("ttyUSB1 indisponible")
+try:
+    serialcomm = serial.Serial('/dev/ttyUSB2', 9600)
+    serialcomm.timeout = 1
 except:
-	print("La fonction de déplacement est indisponible")
+
+	print("ttyUSB2 indisponible")
 
 
 #Connexion au serveur

@@ -35,8 +35,8 @@ const char * separators = ":";
 
 //VITESSE MAX A INJECTE 130
 int Vitesse0 = 0;
-int VitesseTourner = 60; 
-int VitesseNormale = 110;
+int VitesseTourner = 70; 
+int VitesseNormale = 115;
 
 
 float Distance_Droite = 0;
@@ -54,7 +54,8 @@ int TempTourner = 1000;
 //Communication Port Série
 String incomingByte ;
 String data; 
-int mode_auto = 1;
+
+int mode_auto = 0;
 int mode_obstacle = 0;
 
 //Fonction Avancé 
@@ -170,6 +171,8 @@ float Mdistance_Avant(){
     Distance_Avant=T4;
     return(Distance_Avant);
 } 
+
+
 int stopCount = 0;
 char scan()
 {
@@ -201,10 +204,13 @@ char scan()
     return choice;
 }
 
+
 void setup()
 {
-  Serial.begin(9600);
-  pinMode(LED_BUILTIN, OUTPUT);
+  Serial.begin(57600);
+  while (!Serial);
+  Serial.println(F("SchedulerDemo: started"));
+pinMode(LED_BUILTIN, OUTPUT);
     //Relais pour commander les directions du robot
    pinMode(Roue_DroitBleu, OUTPUT);
    pinMode(Roue_DroitJaune, OUTPUT);
@@ -224,17 +230,24 @@ void setup()
   pinMode(ECHO_R_ARRIERE, INPUT);
   pinMode(TRIGGER_R_AVANT, OUTPUT);
   pinMode(ECHO_R_AVANT, INPUT);
-Serial.println("setup1");
-Scheduler.start(setup3, loop3);
+  Serial.print(millis());
+  Serial.println(F(":setup"));
+
   Scheduler.start(setup2, loop2);
-  
+  Scheduler.start(setup3, loop3);
 }
 
 void loop()
 {
-   if (Serial.available()>0){
+  // Main loop iteraction count
+  static int i = 0;
+ if (Serial.available()>0){
+    
+   
    data = Serial.readStringUntil('\n');
-   int data_len = data.length() + 1;
+   
+
+    int data_len = data.length() + 1;
     char data_array[data_len];
     data.toCharArray(data_array, data_len);
   
@@ -275,27 +288,46 @@ void loop()
             i=i+1;
         }
     }
-    
-   }
+
+  }
+  // Print main loop iterations
+  Serial.print(millis());
+  Serial.print(F(":loop::i="));
+  Serial.println(i++);
+  delay(500);
+
+  Serial.print(millis());
+  Serial.print(F(":loop::stack="));
+  Serial.println(Scheduler.stack());
 }
+
+const int LED = 13;
 
 void setup2()
 {
   Serial.print(millis());
   Serial.println(F(":setup2"));
-
+  pinMode(LED, OUTPUT);
 }
 
 void loop2()
 {
-  if(mode_auto==1){
-    
-  
- Serial.println("loop1");
   // Turn LED off
   Serial.print(millis());
-  Serial.println("loop2");
-  mode_obstacle =0;
+  Serial.println(F(":loop2::led off"));
+  digitalWrite(LED, LOW);
+  delay(1000);
+
+  // Turn LED on
+  Serial.print(millis());
+  Serial.println(F(":loop2::led on"));
+  digitalWrite(LED, HIGH);
+  delay(1000);
+  Serial.print("=>>>>>>>>>>>>>>>>>>>>>>>>> mode auto : ");
+  Serial.println(mode_auto);
+  if(mode_auto==1)
+  {
+mode_obstacle =0;
     Mdistance_Avant();
     delay(2);
     Mdistance_Gauche();
@@ -360,8 +392,9 @@ void loop2()
     
    }
   }
-  //Serial.println(Scheduler.stack());
-
+  Serial.print(millis());
+  Serial.print(F(":loop2::stack="));
+  Serial.println(Scheduler.stack());
 }
 
 void setup3()
@@ -425,5 +458,5 @@ void loop3()
 
   Serial.print(millis());
   Serial.print(F(":loop3::stack="));
-
+  Serial.println(Scheduler.stack());
 }
