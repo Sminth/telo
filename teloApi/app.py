@@ -134,7 +134,7 @@ def guide_section(section):
 def guide_with_command(direction):
     
     print(direction)
-
+    serialcomm.flush()
     #serialcomm.write(section.encode())
     serialcomm.write(direction.encode())
     
