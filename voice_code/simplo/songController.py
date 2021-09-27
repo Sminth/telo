@@ -1,35 +1,46 @@
 import pygame
+from pygame import mixer
 import threading
 import time,os,random
 import pyglet
-
+import signal
 class SongController(object):
     def __init__(self):
-        self.files = ['./musiques/beethoven.mp3','./musiques/mozart.mp3']
-        pygame.init()
-        pygame.mixer.init()
+        self.files = ['./musiques/beethoven.wav','./musiques/mozart.wav']
+        #pygame.init()
+        mixer.init()
         self.stepper = 0
         self.control="paus"
         with open('song',"w") as f: f.write("paus")
         self.player = pyglet.media.Player()
         threading.Thread(target=self.isPaused).start()
         # threading.Thread(target=self.run).start()
-
+        self.a_deja_jouer =0
 
     def isPaused(self):
+       print("je commence")
        while 1:
            time.sleep(1)
            with open("song", 'r') as f: 
                self.control=f.read()
            if(self.control== "pause"):
-               self.player.pause()
+               #self.player.pause()
+               mixer.music.pause()
+
            elif self.control == "play" :
-               if self.player.source : self.player.play()
+               
+               #if self.player.source : self.player.play()
+               if mixer.music.get_busy() == 1: pass
+
                else :
-                   src = pyglet.media.load(random.choice(self.files))
+                   mixer.music.load(random.choice(self.files))
+                   mixer.music.play()
+                   self.a_deja_jouer =1
+                   """src = pyglet.media.load(random.choice(self.files))
                    self.player.queue(src)
-                   self.player.play()
-            
+                   self.player.play()"""
+               
+           #print(self.control)     
 
     """ def run(self):
         while 1:

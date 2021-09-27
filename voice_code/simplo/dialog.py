@@ -174,7 +174,8 @@ class Dialog():
             # sio.emit("rasa-responses",['0.5','connection au serveur rasa impossible'],namespace='/speech')
             self.response = "connection au serveur rasa impossible"
             if self.attente_isplein : return 
-            else : Dialog().SpeakText("je ne suis pas en mesure de vous repondre pour le moment")
+            else : Dialog().SpeakText("je ne peux vous repondre actuellement")
+            #else : Dialog().SpeakText("je ne suis pas en mesure de vous repondre pour le moment")
             # else : self.add_file_attente("je ne suis pas en mesure de vous repondre pour le moment")
             # self.SpeakText("je ne suis pas en mesure de vous repondre pour le moment")
         temp=str(time.time()-tps1)
