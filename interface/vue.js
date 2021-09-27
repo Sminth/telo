@@ -21,9 +21,10 @@ new Vue({
   },
   methods: {
     musika() {
+      console.log("msk");
       if (this.mode_music) axios.get("http://192.168.252.237:6400/api/song/on").then(function (response) { console.log(response); }).catch(function (error) { console.log(error); });
 
-      else axios.get("http://192.168.252.237:6400/api/song/on").then(function (response) { console.log(response); }).catch(function (error) { console.log(error); });
+      else axios.get("http://192.168.252.237:6400/api/song/off").then(function (response) { console.log(response); }).catch(function (error) { console.log(error); });
 
     },
 

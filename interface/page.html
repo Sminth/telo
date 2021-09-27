@@ -80,7 +80,7 @@
                     <!-- end toggle markup	 -->
             
                     <label class="toggle" for="zik">
-                        <input type="checkbox" class="toggle__input" id="zik" />
+                        <input v-on:change="musika" v-model="mode_music" type="checkbox" class="toggle__input" id="zik" />
                         <span class="toggle-track">
                             <span class="toggle-indicator">
                                 <!-- 	This check mark is optional	 -->
