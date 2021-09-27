@@ -1,4 +1,4 @@
-#include <Scheduler.h>
+
 #define Roue_DroitBleu   25
 #define Roue_DroitJaune  23
 #define Roue_DroitVert   27
@@ -190,8 +190,7 @@ void setup() {
   pinMode(ECHO_R_ARRIERE, INPUT);
   pinMode(TRIGGER_R_AVANT, OUTPUT);
   pinMode(ECHO_R_AVANT, INPUT);
-Scheduler.start(setup2, loop2);
-  Scheduler.start(setup3, loop3);
+
   
 //  analogWrite(AccelerationDroit,Vitesse0);
 //  analogWrite(AccelerationGauche,Vitesse0);
@@ -234,22 +233,12 @@ char scan()
 
 
 void loop() {
-Serial.println(Scheduler.stack());
-   while (!Serial.available());
-   data = Serial.readStringUntil('\n');
-   /*data = Serial.read();
-   if(data =="auto"){
-    mode_auto =1;
-   }
-   else if (data =="obstacle"){
-    mode_obstacle =1;
-   }
-    else if (data =="stop"){
-      mode_auto =0;
-    mode_obstacle =0;
-   }
 
-  else {*/
+   if (Serial.available()>0){
+    
+   
+   data = Serial.readStringUntil('\n');
+   
 
     int data_len = data.length() + 1;
     char data_array[data_len];
@@ -294,87 +283,4 @@ Serial.println(Scheduler.stack());
     }
 
   }
-  
-
-
-void setup2(){
-  Serial.println("go 2");
- 
-}
-void loop2() {
-  
-
-    mode_obstacle =0;
-    Mdistance_Avant();
-    delay(2);
-    Mdistance_Gauche();
-    delay(2);
-    Mdistance_Droite();
-    delay(2);
-
-    //pour avancer 
-     if( Distance_Avant>=Distance_max  ){
-      Serial.print(Distance_Avant);
-      Serial.println("cm Avant");
-      Avancer();
-      delay(3000);
-      Stop();
-      delay(300);
-    
-  }
- ///////////////////////////// 
- else if( Distance_Avant < Distance_max ){
-       Distance_maxi =max(Distance_Droite,Distance_Gauche);
-       if( Distance_maxi== Distance_Droite ){
-          Serial.print(Distance_Droite);
-          Serial.println("cm Droite");
-          TournerADroite();
-          delay(TempTourner);
-          Stop();
-          delay(300);
-       }
-      else if( Distance_maxi== Distance_Gauche ){
-          Serial.print(Distance_Gauche);
-          Serial.println("cm Gauche");
-          TournerAGauche();
-          delay(TempTourner);
-          Stop();
-          delay(300);
-       } 
-       
-   }
-      
-  else if(Distance_Droite<Distance_min && Distance_Gauche<Distance_min && Distance_Avant<Distance_min){
-    Mdistance_Arriere();
-        Serial.print(Distance_Arriere);
-        Serial.println("cm Arriere");
-    if(Distance_Arriere>Distance_min){
-      if(Distance_Droite>Distance_Gauche){
-        Serial.print(Distance_Droite);
-        Serial.println("cm Droite");
-        TournerADroite();
-        delay(TempTourner);
-        Stop();
-        delay(300);
-      }
-      else if(Distance_Droite<Distance_Gauche){
-        TournerAGauche();
-        delay(TempTourner);
-        Stop();
-        delay(300);
-        
-      }
-    }
- 
-    
-   }
-}
-
-void setup3(){
-  Serial.println("go 3");
-}
-void loop3() {
-   if(mode_obstacle==1){
-    mode_auto =0;
-   }
 }

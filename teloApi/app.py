@@ -4,7 +4,7 @@ from .connect import get_db, make_dicts
 from .sql_script import create_table
 import socketio
 import json
-import requests
+import requests, threading
 import time
 from flask import Flask
 from flask_cors import CORS, cross_origin

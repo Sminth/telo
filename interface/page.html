@@ -59,11 +59,12 @@
                                 </span>
                             </span>
                         </span>
-                        Mode deplacement Libre  {{mode_deplacement}}
+                        Mode deplacement Libre  ({{mode_deplacement}})
                     </label>
             
-                    <label class="toggle" for="uniqueID">
-                        <input type="checkbox" class="toggle__input" id="uniqueID" />
+                    <label class="toggle" for="disabledDemo">
+                        <input type="checkbox" v-if="mode_deplacement" class="toggle__input" id="disabledDemo" disabled />
+                        <input type="checkbox" v-else class="toggle__input" id="disabledDemo"  />
                         <span class="toggle-track">
                             <span class="toggle-indicator">
                                 <!-- 	This check mark is optional	 -->
@@ -93,7 +94,7 @@
                         Mode Musique
                     </label>
 
-                    <label class="toggle" for="arret">
+                    <!-- <label class="toggle" for="arret">
                         <input type="checkbox" class="toggle__input" id="arret"  />
                         <span class="toggle-track">
                             <span class="toggle-indicator">
@@ -105,10 +106,10 @@
                             </span>
                         </span>
                         Tout arrêter
-                    </label>
+                    </label> -->
                 </div>
             </div>
-            <button type="button" class="btn btn-outline-dark"  v-on:click='lol'>Reset</button>
+            <button type="button" class="btn btn-outline-dark"  v-on:click='lol'>stop all</button>
 <br><br>
           </div>
           <div id="regis" class="container tab-pane fade">
@@ -162,7 +163,7 @@
               <br><br>
               <div class="form-group ">
                 <label for="gauche" class="">Message après arrêt ( facultatif )</label> <br>
-                <textarea name="" id="" cols="80" rows="2"></textarea>
+                <textarea v-model="msg_prg" name="" id="" cols="80" rows="2"></textarea>
                 <!-- <input type="text" class="form-control is-valid col-3" id="gauche" > <br> -->
                 <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
               </div>
