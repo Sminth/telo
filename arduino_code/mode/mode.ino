@@ -232,7 +232,66 @@ Scheduler.start(setup3, loop3);
 
 void loop()
 {
-  Serial.println("loop1");
+   if (Serial.available()>0);
+   data = Serial.readStringUntil('\n');
+   int data_len = data.length() + 1;
+    char data_array[data_len];
+    data.toCharArray(data_array, data_len);
+  
+    //Serial.println(data);
+    Serial.println(data_array);
+    char * strToken = strtok ( data_array, separators );
+    if(data){
+        int i =0;
+        while ( strToken != NULL ) {
+  
+            if(i%2==0){
+            
+                if (String(strToken) == "a") Avancer();
+                else if (String(strToken) == "g") TournerAGauche();
+                
+                else if (String(strToken) == "d") TournerADroite();
+                
+                else if (String(strToken) == "s") Stop();
+                else if (String(strToken) == "y") {
+                  mode_auto =1;
+                }
+                 else if (String(strToken) == "z") {
+                  mode_auto =0;
+    mode_obstacle =0;
+                }
+                else{
+                 Stop();
+                 delay(TempStop);
+                }
+                
+            }else{
+                Serial.println("ok");
+                delay(atof(strToken)*1000);
+            }
+            // On demande le token suivant.
+            strToken = strtok ( NULL, separators );
+            
+            i=i+1;
+        }
+    }
+    
+  
+}
+
+void setup2()
+{
+  Serial.print(millis());
+  Serial.println(F(":setup2"));
+
+}
+
+void loop2()
+{
+  if(mode_auto==1){
+    
+  
+ Serial.println("loop1");
   // Turn LED off
   Serial.print(millis());
   Serial.println("loop2");
@@ -300,64 +359,9 @@ void loop()
  
     
    }
-  Serial.println(Scheduler.stack());
-}
+  }
+  //Serial.println(Scheduler.stack());
 
-void setup2()
-{
-  Serial.print(millis());
-  Serial.println(F(":setup2"));
-
-}
-
-void loop2()
-{
-  /*
-  while (!Serial.available());
-   data = Serial.readStringUntil('\n');
-   int data_len = data.length() + 1;
-    char data_array[data_len];
-    data.toCharArray(data_array, data_len);
-  
-    //Serial.println(data);
-    Serial.println(data_array);
-    char * strToken = strtok ( data_array, separators );
-    if(data){
-        int i =0;
-        while ( strToken != NULL ) {
-  
-            if(i%2==0){
-            
-                if (String(strToken) == "a") Avancer();
-                else if (String(strToken) == "g") TournerAGauche();
-                
-                else if (String(strToken) == "d") TournerADroite();
-                
-                else if (String(strToken) == "s") Stop();
-                else if (String(strToken) == "y") {
-                  mode_auto =1;
-                }
-                 else if (String(strToken) == "z") {
-                  mode_auto =0;
-    mode_obstacle =0;
-                }
-                else{
-                 Stop();
-                 delay(TempStop);
-                }
-                
-            }else{
-                Serial.println("ok");
-                delay(atof(strToken)*1000);
-            }
-            // On demande le token suivant.
-            strToken = strtok ( NULL, separators );
-            
-            i=i+1;
-        }
-    }
-
-*/
 }
 
 void setup3()
@@ -421,5 +425,5 @@ void loop3()
 
   Serial.print(millis());
   Serial.print(F(":loop3::stack="));
-  Serial.println(Scheduler.stack());
+
 }
