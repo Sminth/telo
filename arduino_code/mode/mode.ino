@@ -203,7 +203,7 @@ char scan()
 
 void setup()
 {
-  Serial.begin(57600);
+  Serial.begin(9600);
   pinMode(LED_BUILTIN, OUTPUT);
     //Relais pour commander les directions du robot
    pinMode(Roue_DroitBleu, OUTPUT);
@@ -232,7 +232,7 @@ Scheduler.start(setup3, loop3);
 
 void loop()
 {
-   if (Serial.available()>0);
+   if (Serial.available()>0){
    data = Serial.readStringUntil('\n');
    int data_len = data.length() + 1;
     char data_array[data_len];
@@ -276,7 +276,7 @@ void loop()
         }
     }
     
-  
+   }
 }
 
 void setup2()
