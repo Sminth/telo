@@ -205,7 +205,7 @@ char scan()
 
 void setup()
 {
-  Serial.begin(57600);
+  Serial.begin(9600);
   while (!Serial);
   Serial.println(F("SchedulerDemo: started"));
 pinMode(LED_BUILTIN, OUTPUT);
@@ -290,14 +290,14 @@ void loop()
 
   }
   // Print main loop iterations
-  //Serial.print(millis());
+  Serial.print(millis());
   Serial.print(F(":loop::i="));
   Serial.println(i++);
   delay(500);
 
-  //Serial.print(millis());
-  //Serial.print(F(":loop::stack="));
- // Serial.println(Scheduler.stack());
+  Serial.print(millis());
+  Serial.print(F(":loop::stack="));
+  Serial.println(Scheduler.stack());
 }
 
 const int LED = 13;
@@ -444,6 +444,9 @@ void loop3()
   Serial.print(ms);
   Serial.print(F(",buf="));
   Serial.println(buf);
+  
+  //if(content.indexOf("Teststring") > 0)
+ // Serial.println(buf.indexOf("o") > 0);
   if(buf=="auto"){
     Serial.println("##mode auto");
     mode_auto=1;
