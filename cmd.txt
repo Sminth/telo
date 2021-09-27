@@ -9,3 +9,8 @@ source ./venv/bin/activate
 rasa run actions
 --
 rasa run --enable-api --cors "*" --debug
+
+
+cd /home/telo/Documents/voice_code/simplo
+source ./cyndi/bin/activate
+python3 main.py
