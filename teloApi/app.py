@@ -25,12 +25,12 @@ print("http://" + ip + ":9400")
 try:
 	serialcomm = serial.Serial('/dev/ttyUSB0', 9600)
 	serialcomm.timeout = 1
-except ExplicitException:
+except:
     print("ttyUSB0 indisponible")
 try:
     serialcomm = serial.Serial('/dev/ttyUSB1', 9600)
     serialcomm.timeout = 1
-except ExplicitException:
+except:
     print("ttyUSB1 indisponible")
 try:
     serialcomm = serial.Serial('/dev/ttyUSB2', 9600)
