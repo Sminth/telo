@@ -136,6 +136,7 @@ def guide_with_command(direction):
     print(direction)
     serialcomm.flush()
     #serialcomm.write(section.encode())
+    print(direction.encode())
     serialcomm.write(direction.encode())
     
     return "Commande " + direction
