@@ -2,9 +2,7 @@
 #include <Scheduler.h>
 
 // Check for SparkFun SAMD21 Breakout
-#if defined(ARDUINO_ARCH_SAMD) && (USB_PID == 0x8D21)
-#define Serial SerialUSB
-#endif
+
 
 #define Roue_DroitBleu   25
 #define Roue_DroitJaune  23
@@ -207,7 +205,7 @@ char scan()
 
 void setup()
 {
-  Serial.begin(57600);
+  Serial.begin(9600);
   while (!Serial);
   Serial.println(F("SchedulerDemo: started"));
 pinMode(LED_BUILTIN, OUTPUT);
@@ -240,6 +238,7 @@ pinMode(LED_BUILTIN, OUTPUT);
 void loop()
 {
   // Main loop iteraction count
+   //Serial.println(Serial.available());
   static int i = 0;
  if (Serial.available()>0){
     
@@ -251,7 +250,7 @@ void loop()
     char data_array[data_len];
     data.toCharArray(data_array, data_len);
   
-    //Serial.println(data);
+    Serial.println("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& : "+data);
     Serial.println(data_array);
     char * strToken = strtok ( data_array, separators );
     if(data){
@@ -445,6 +444,15 @@ void loop3()
   Serial.print(ms);
   Serial.print(F(",buf="));
   Serial.println(buf);
+  if(buf=="auto"){
+    Serial.println("##mode auto");
+    mode_auto=1;
+  }
+  else if(buf=="obs"){
+    Serial.println("##mode obstacle");
+    mode_auto=0;
+    mode_obstacle=1;
+  }
 
   // Check for buffer free command
   if (!strcmp_P(buf, (const char*) F("free"))) {

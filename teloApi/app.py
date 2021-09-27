@@ -23,17 +23,17 @@ print("http://" + ip + ":9400")
 
 #Serial Port communication
 try:
-	serialcomm = serial.Serial('/dev/ttyUSB0', 9600)
+	serialcomm = serial.Serial('/dev/ttyUSB0', 57600)
 	serialcomm.timeout = 1
 except:
     print("ttyUSB0 indisponible")
 try:
-    serialcomm = serial.Serial('/dev/ttyUSB1', 9600)
+    serialcomm = serial.Serial('/dev/ttyUSB1', 57600)
     serialcomm.timeout = 1
 except:
     print("ttyUSB1 indisponible")
 try:
-    serialcomm = serial.Serial('/dev/ttyUSB2', 9600)
+    serialcomm = serial.Serial('/dev/ttyUSB2', 57600)
     serialcomm.timeout = 1
 except:
 
