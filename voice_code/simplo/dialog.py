@@ -24,10 +24,11 @@ print('my sid is', sio.sid)
 #sio.wait()    
 """
 f = open("../../ipVenv","r")
-print(">>>>>>>>>>>>>>>>>>>>>>>>"+f.read())
+# print(">>>>>>>>>>>>>>>>>>>>>>>>"+f.read())
+ip = f.read()
 sio = socketio.Client()
 try:
-	sio.connect('http://'+f.read()+':9400', namespaces=['/speech'])
+	sio.connect('http://'+ip+':9400', namespaces=['/speech'])
     
 except Exception as e:
     print(e)
@@ -161,8 +162,8 @@ class Dialog():
         try :
             headers = {"Content-type": "application/json"}
             data = "{\"sender\": \"user1\", \"message\": \" " + message + "\"}"
-            print(f.read())
-            self.response = requests.post("http://"+f.read()+":5005/webhooks/rest/webhook",
+            print(ip)
+            self.response = requests.post("http://"+ip+":5005/webhooks/rest/webhook",
                          headers=headers, data=data.encode('utf-8'),timeout=4)
             
             print("temps de reponse rasa : "+ str(temp) +" seconde")
