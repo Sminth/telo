@@ -7,3 +7,5 @@ import serial.tools.list_ports
 for port, desc, hwid in sorted(ports):
 ...         print("{}: {} [{}]".format(port, desc, hwid))
 
+
+pactl set-sink-volume 0 -5% #volume
