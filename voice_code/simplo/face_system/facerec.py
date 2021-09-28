@@ -7,7 +7,7 @@ import time
 import subprocess
 from subprocess import PIPE, run
 
-print("start")
+# print("start")
 
 users = []
 img = []

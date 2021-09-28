@@ -24,6 +24,7 @@ print('my sid is', sio.sid)
 #sio.wait()    
 """
 f = open("../../ipVenv","r")
+print(">>>>>>>>>>>>>>>>>>>>>>>>"+f.read())
 sio = socketio.Client()
 try:
 	sio.connect('http://'+f.read()+':9400', namespaces=['/speech'])

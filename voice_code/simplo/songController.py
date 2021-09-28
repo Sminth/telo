@@ -18,7 +18,7 @@ class SongController(object):
         self.a_deja_jouer =0
 
     def isPaused(self):
-       print("je commence")
+    #    print("je commence")
        while 1:
            time.sleep(1)
            with open("song", 'r') as f: 
