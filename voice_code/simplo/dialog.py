@@ -160,7 +160,7 @@ class Dialog():
         try :
             headers = {"Content-type": "application/json"}
             data = "{\"sender\": \"user1\", \"message\": \" " + message + "\"}"
-                  
+            print(f.read())
             self.response = requests.post("http://"+f.read()+":5005/webhooks/rest/webhook",
                          headers=headers, data=data.encode('utf-8'),timeout=4)
             

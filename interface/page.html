@@ -48,7 +48,7 @@
                     <!-- begin toggle markup	 -->
             
                     <label class="toggle" for="depl">
-                        <input v-model="mode_deplacement" type="checkbox" class="toggle__input" id="depl" />
+                        <input v-on:change="depl_libre"  v-model="mode_deplacement" type="checkbox" class="toggle__input" id="depl" />
                         <span class="toggle-track">
                             <span class="toggle-indicator">
                                 <!-- 	This check mark is optional	 -->
@@ -63,8 +63,8 @@
                     </label>
             
                     <label class="toggle" for="disabledDemo">
-                        <input type="checkbox" v-if="mode_deplacement" class="toggle__input" id="disabledDemo" disabled />
-                        <input type="checkbox" v-else class="toggle__input" id="disabledDemo"  />
+                        <input type="checkbox" v-model="mode_obstacle" v-if="mode_deplacement" class="toggle__input" id="disabledDemo" disabled />
+                        <input v-on:change="depl_obstacle" type="checkbox" v-else class="toggle__input" id="disabledDemo"  />
                         <span class="toggle-track">
                             <span class="toggle-indicator">
                                 <!-- 	This check mark is optional	 -->
@@ -168,7 +168,7 @@
                 <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
               </div>
               
-              <button type="submit" class="btn btn-outline-dark" v-on:click="depl_prog">Executer</button>
+              <button type="button" class="btn btn-outline-dark" v-on:click="depl_prog">Executer</button>
             </form>
           </div>
         
@@ -180,8 +180,8 @@
                   <!-- <p>The following demo shows how to build and style a custom toggle switch using a semantic checkbox.</p> -->
               </div>
               <div class="frae">
-                <button v-on:click="send_msg1"  id="button" class="custom-btn btn-3"><span>P. Telo</span></button> 
-                <button id="button" class="custom-btn btn-4 ml-5"><span>D. ODC</span></button> <br> <br> <br>
+                <button v-on:click="send_msg1" type="button"  id="button" class="custom-btn btn-3"><span>P. Telo</span></button> 
+                <button type="button" id="button" class="custom-btn btn-4 ml-5"><span>D. ODC</span></button> <br> <br> <br>
             </div>
             <div class="form-group ">
               <label for="gauche" class="">Message ( facultatif )</label> <br>
