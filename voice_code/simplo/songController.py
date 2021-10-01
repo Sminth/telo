@@ -6,7 +6,7 @@ import pyglet
 import signal
 class SongController(object):
     def __init__(self):
-        self.files = ['./musiques/beethoven.wav','./musiques/mozart.wav']
+        self.files = ['./musiques/ode.wav','./musiques/ukulele.wav']
         #pygame.init()
         mixer.init()
         self.stepper = 0
