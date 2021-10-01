@@ -16,7 +16,7 @@ import requests
 
 f = open("../../ipVenv","r")
 # print(f.readline())
-#threading.Thread(target= lambda: requests.get("http://10.3.141.56/bad",timeout=1)).start()
+threading.Thread(target= lambda: requests.get("http://192.168.252.145/rouge",timeout=1)).start()
 # requests.get("http://10.106.5.135/bad",timeout=1)
 
 #Connect to Socket
