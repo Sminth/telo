@@ -18,6 +18,7 @@ nlu:
   examples: |
     - qui sont ceux qui t'ont conçu
     - qui sont tes réalisateurs
+    - qui sont tes concepteurs
     - donnes nous le nom de tes concepteurs
     - tes auteurs
 

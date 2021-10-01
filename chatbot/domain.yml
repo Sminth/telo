@@ -131,7 +131,7 @@ responses:
   - text: navré, que puis-je faire pour vous
 
   utter_concepteurs:
-  - text: j'ai été conçu par Emmanuel Malan, Kouyaté Mohamed, Djigo Roxanne.
+  - text: j'ai été conçu par Emmanuel Malan,Djigo Roxanne,Mohamed Kouyaté, Latifate Kaboré, Sandé Oscar et N'guetta marc aurel.
 
   # utter_lieu_non_trouver:
   # - text: desolé je ne sais pas ou se trouve le bureau de  {nom_respo}

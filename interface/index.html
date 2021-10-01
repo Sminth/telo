@@ -1,93 +1,215 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css" />
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
-    />
-  </head>
-  <body>
-    <body>
-      <div>
-        <!-- Tabs - Page -->
-        <div class="tabs-page">
-          <!-- Nav Tabs -->
-          <ul class="nav nav-tabs" role="tablist">
-            <li role="presentation" class="active">
-              <a href="#home" aria-controls="home" role="tab" data-toggle="tab"
-                >Accueil</a
-              >
-            </li>
-            <li role="presentation">
-              <a
-                href="#profile"
-                aria-controls="profile"
-                role="tab"
-                data-toggle="tab"
-                >Profile</a
-              >
-            </li>
-            <li role="presentation">
-              <a
-                href="#messages"
-                aria-controls="messages"
-                role="tab"
-                data-toggle="tab"
-                >Messages</a
-              >
-            </li>
-            <li role="presentation">
-              <a
-                href="#settings"
-                aria-controls="settings"
-                role="tab"
-                data-toggle="tab"
-                >Settings</a
-              >
-            </li>
-          </ul>
-          <!-- ./ nav tabs -->
-        </div>
-        <!-- ./ tabs page -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style2.css">
+      <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/http-vue-loader"></script>
+</head>
+<body>
+    <header>
+        <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+       <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&display=swap" rel="stylesheet">
+     </header>
 
-        <div class="tabs-page">
-          <!-- Tab panes -->
-          <div class="tab-content">
-            <div role="tabpanel" class="tab-pane active" id="home">
-              <div class="container">
-                <div class="row">
-                  <div class="col-sm-12">
-                    <div class="text-center text-muted">
-                      <br /><br />
-                      <label for="">Mode Deplacement Libre </label>
-                      <input type="checkbox" name="" id="" />
-                      <br /><br />
-                      <label for="">Mode Obstacle</label>
-                      <input type="checkbox" name="" id="" />
-                      <br /><br />
-                      <label for="">Mode Musique</label>
-                      <input type="checkbox" name="" id="" />
-                      <br /><br />
-                      <label for="">Arrêt </label>
-                      <input type="checkbox" name="" id="" />
-                    </div>
-                    <!-- <h3 class="text-center">Secondary Tabs</h3>
-                                <h5 class="text-muted text-center">Just in case you want them</h5> -->
-                  </div>
+    <div class="content mt-5" id="app">
+        <!-- Nav pills -->
+        <ul class="nav nav-pills" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" data-toggle="pill" href="#login">Acceuil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="pill" href="#regis">Deplacement</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="pill" href="#test">Depl. progr.</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="pill" href="#message">Message progr.</a>
+          </li>
+          
+        </ul>
+    
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div id="login" class="container tab-pane active">
+              <br>
+              <div class="cad">
+                <div class="content-wrapper">
+                    <h2 class="heading">Commandes de Base</h2>
+                    <!-- <p>The following demo shows how to build and style a custom toggle switch using a semantic checkbox.</p> -->
                 </div>
-              </div>
+            
+                <div class="demo">
+                    <!-- begin toggle markup	 -->
+            
+                    <label class="toggle" for="depl">
+                        <input v-on:change="depl_libre"  v-model="mode_deplacement" type="checkbox" class="toggle__input" id="depl" />
+                        <span class="toggle-track">
+                            <span class="toggle-indicator">
+                                <!-- 	This check mark is optional	 -->
+                                <span class="checkMark">
+                                    <svg viewBox="0 0 24 24" id="ghq-svg-check" role="presentation" aria-hidden="true">
+                                        <path d="M9.86 18a1 1 0 01-.73-.32l-4.86-5.17a1.001 1.001 0 011.46-1.37l4.12 4.39 8.41-9.2a1 1 0 111.48 1.34l-9.14 10a1 1 0 01-.73.33h-.01z"></path>
+                                    </svg>
+                                </span>
+                            </span>
+                        </span>
+                        Mode deplacement Libre  ({{mode_deplacement}})
+                    </label>
+            
+                    <label class="toggle" for="disabledDemo">
+                        <input type="checkbox" v-model="mode_obstacle" v-if="mode_deplacement" class="toggle__input" id="disabledDemo" disabled />
+                        <input v-on:change="depl_obstacle" type="checkbox" v-else class="toggle__input" id="disabledDemo"  />
+                        <span class="toggle-track">
+                            <span class="toggle-indicator">
+                                <!-- 	This check mark is optional	 -->
+                                <span class="checkMark">
+                                    <svg viewBox="0 0 24 24" id="ghq-svg-check" role="presentation" aria-hidden="true">
+                                        <path d="M9.86 18a1 1 0 01-.73-.32l-4.86-5.17a1.001 1.001 0 011.46-1.37l4.12 4.39 8.41-9.2a1 1 0 111.48 1.34l-9.14 10a1 1 0 01-.73.33h-.01z"></path>
+                                    </svg>
+                                </span>
+                            </span>
+                        </span>
+                        Mode `` jusqu'au prochain obstacle
+                    </label>
+                    <!-- end toggle markup	 -->
+            
+                    <label class="toggle" for="zik">
+                        <input v-on:change="musika" v-model="mode_music" type="checkbox" class="toggle__input" id="zik" />
+                        <span class="toggle-track">
+                            <span class="toggle-indicator">
+                                <!-- 	This check mark is optional	 -->
+                                <span class="checkMark">
+                                    <svg viewBox="0 0 24 24" id="ghq-svg-check" role="presentation" aria-hidden="true">
+                                        <path d="M9.86 18a1 1 0 01-.73-.32l-4.86-5.17a1.001 1.001 0 011.46-1.37l4.12 4.39 8.41-9.2a1 1 0 111.48 1.34l-9.14 10a1 1 0 01-.73.33h-.01z"></path>
+                                    </svg>
+                                </span>
+                            </span>
+                        </span>
+                        Mode Musique
+                    </label>
+
+                    <!-- <label class="toggle" for="arret">
+                        <input type="checkbox" class="toggle__input" id="arret"  />
+                        <span class="toggle-track">
+                            <span class="toggle-indicator">
+                                <span class="checkMark">
+                                    <svg viewBox="0 0 24 24" id="ghq-svg-check" role="presentation" aria-hidden="true">
+                                        <path d="M9.86 18a1 1 0 01-.73-.32l-4.86-5.17a1.001 1.001 0 011.46-1.37l4.12 4.39 8.41-9.2a1 1 0 111.48 1.34l-9.14 10a1 1 0 01-.73.33h-.01z"></path>
+                                    </svg>
+                                </span>
+                            </span>
+                        </span>
+                        Tout arrêter
+                    </label> -->
+                </div>
+                 <br>
+                 <div class="value"><span  v-text="volume">0</span><span> %</span></div>
+                <input v-on:change="setVolume" v-model="volume" class="mt-4" type="range" min="0" max="100" step="5" > <br>
             </div>
-            <div role="tabpanel" class="tab-pane" id="profile">...</div>
-            <div role="tabpanel" class="tab-pane" id="messages">...</div>
-            <div role="tabpanel" class="tab-pane" id="settings">...</div>
+            <button type="button" class="btn btn-outline-dark"  v-on:click='lol'>stop all</button>
+<br><br>
           </div>
+          <div id="regis" class="container tab-pane fade">
+          
+            <br>
+            <center>
+
+                <div class="directional-buttons" style="margin-left: -5px;">
+                    <button class="direction-button up">
+                      <span class="visually-hidden">up</span>
+                    </button>
+                    <button class="direction-button left">
+                      <span class="visually-hidden">left</span>
+                    </button>
+                    <button class="direction-button right">
+                      <span class="visually-hidden">right</span>
+                    </button>
+                    <button class="direction-button down">
+                      <span class="visually-hidden">down</span>
+                    </button>
+                  </div>
+                  <br><br>
+              </div>
+            </center>
+
+          <div id="test" class="container tab-pane fade">
+              <br>
+            <form>
+                <div class="content-wrapper">
+                    <h2 class="heading">Programmer un deplacement</h2>
+                    <p style="color: red;">{{message_erreur}}</p>
+                    <!-- <p>The following demo shows how to build and style a custom toggle switch using a semantic checkbox.</p> -->
+                </div>
+              <div class="form-group row">
+                <label for="avancer" class="col-7 col-form-label">Avancer pendant (en seconde)</label>
+                <input type="number" min="0" v-model="avancer" class="form-control is-valid col-2" value="0" id="avancer" > <br>
+                <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+              </div>
+              <div class="form-group row">
+                <label for="gauche" class="col-7 col-form-label">Tourner à gauche pendant (en seconde)</label>
+                <input min="0"  v-model="gauche" type="number" class="form-control is-valid col-3" value="0" id="gauche" > <br>
+                <!-- <input type="number" class="form-control is-valid col-3" id="gauche" > <br> -->
+                <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+              </div>
+              <div class="form-group row">
+                <label for="avancer" class="col-7 col-form-label">Tourner à droite pendant (en seconde)</label>
+                <input min="0"  v-model="droite" type="number" class="form-control is-valid col-2" value="0" id="avancer" > <br>
+                <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+              </div>
+              <a class="btn" style="background-color: rgb(214, 55, 55);color: white;cursor: pointer;" v-on:click="arret">STOPPER</a>
+              <br><br>
+              <div class="form-group ">
+                <label for="gauche" class="">Message après arrêt ( facultatif )</label> <br>
+                <textarea v-model="msg_prg" name="" id="" cols="80" rows="2"></textarea>
+                <!-- <input type="text" class="form-control is-valid col-3" id="gauche" > <br> -->
+                <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+              </div>
+              
+              <button type="button" class="btn btn-outline-dark" v-on:click="depl_prog">Executer</button>
+            </form>
+          </div>
+        
+          <div id="message" class="container tab-pane fade">
+            <br>
+          <form>
+              <div class="content-wrapper">
+                  <h2 class="heading">Programmer un message</h2>
+                  <!-- <p>The following demo shows how to build and style a custom toggle switch using a semantic checkbox.</p> -->
+              </div>
+              <div class="frae">
+                <button v-on:click="send_msg1" type="button"  id="button" class="custom-btn btn-3"><span>P. Telo</span></button> 
+                <button type="button" id="button" class="custom-btn btn-4 ml-5"><span>D. ODC</span></button> <br> <br> <br>
+            </div>
+            <div class="form-group ">
+              <label for="gauche" class="">Message ( facultatif )</label> <br>
+              <textarea v-model="message" name="" id="" cols="80" rows="2"></textarea>
+              <!-- <input type="text" class="form-control is-valid col-3" id="gauche" > <br> -->
+              <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+            </div>
+            <button type="submit" v-on:click="send_message" class="btn btn-outline-dark">Executer</button>
+            <br><br>
+           
+          </form>
+        </div>
+      
         </div>
       </div>
-    </body>
-  </body>
+
+    
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+      <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+      <script src="vue.js">
+
+
+      </script>
+</body>
 </html>
