@@ -58,7 +58,7 @@ def sendToArduino(direction):
 @app.route('/api/volume/<volume>', methods=['GET'])
 def setVolumeSystem(volume):
     os.system("amixer --quiet set Master "+volume)
-
+    return "OK"
 @app.route('/api/create_table', methods=['GET'])
 def create_table_():
     create_table()
