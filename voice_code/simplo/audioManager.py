@@ -116,9 +116,9 @@ class AudioRecorder():
                     #self.dialog.SpeakText(reponse)
                 except sr.WaitTimeoutError as k :
                     print("time out") 
-                except Exception as e :
-                    print("error ........")  
-                    print(e)
+                # except Exception as e :
+                #     print("error ........")  
+                #     print(e)
                 
             else : 
                 time.sleep(0.5)
