@@ -71,9 +71,12 @@ class AudioRecorder():
                     threading.Thread(target= lambda: requests.get("http://192.168.252.145/vert",timeout=1)).start()
                     if self.pause : pass
                     else:
-                        self.recognizer.adjust_for_ambient_noise(source, duration=1)
-                        # print("acvt")
-                        audio = self.recognizer.listen(source,timeout=7)
+                        try:
+                            self.recognizer.adjust_for_ambient_noise(source, duration=1)
+                            # print("acvt")
+                            audio = self.recognizer.listen(source,timeout=7)
+                        except Exception as e:
+                            print("timeout")
                     # print("apres")
 
                 # essayer de reconnaître la parole dans l'enregistrement
