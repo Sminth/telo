@@ -66,47 +66,45 @@ class AudioRecorder():
             if not self.pause :
             
                 print("Je vous écoute...")
-                
-                with self.microphone as source:
-                    threading.Thread(target= lambda: requests.get("http://192.168.252.145/vert",timeout=1)).start()
-                    if self.pause : pass
-                    else:
-                        try:
-                            self.recognizer.adjust_for_ambient_noise(source, duration=1)
-                            # print("acvt")
-                            audio = self.recognizer.listen(source,timeout=7)
-                        except Exception as e:
-                            print("timeout")
-                    # print("apres")
-
-                # essayer de reconnaître la parole dans l'enregistrement
-                # si une exception RequestError ou UnknownValueError est détectée,
-                # mettez à jour l'objet réponse en conséquence
                 try:
-                    print("transcription en cours...")
-                    logging.info("transcription en cours")
-                    tps1 = time.time()
-                    threading.Thread(target=lambda: requests.get("http://192.168.252.145/rouge")).start()
-                    reponse = self.recognizer.recognize_google(
-                        audio, language='fr-FR').lower()
-                    tps2 = time.time()
-                    print("temps de reponse google : "+str(tps2-tps1)+" seconde")
-                    self.value=reponse
-                    if("sortie" in reponse.lower() or "stop" in reponse.lower() ) :
-                        break
-                    logging.info("transcription:"+reponse)
-                    print(reponse) 
-                    if not self.pause :
-                        # os.system("python3 dialog.py --input \""+reponse+"\"")
-                        self.dialog.process_init(reponse)
-                    # os.subprocess()
-                    # subprocess.Popen("python3 dialog.py --input \""+reponse+"\"", shell=True)
-                    # os.system("python3 dialog.py --input \""+reponse+"\"")
-                    print("ok")
-                    # time.sleep(1000)
-                    
+                    with self.microphone as source:
+                        threading.Thread(target= lambda: requests.get("http://192.168.252.145/vert",timeout=1)).start()
+                        if self.pause : pass
+                        else:
+                            self.recognizer.adjust_for_ambient_noise(source, duration=1)
+                                # print("acvt")
+                            audio = self.recognizer.listen(source,timeout=7)
+                            
+                        # print("apres")
 
-                
+                    # essayer de reconnaître la parole dans l'enregistrement
+                    # si une exception RequestError ou UnknownValueError est détectée,
+                    # mettez à jour l'objet réponse en conséquence
+                    
+                        print("transcription en cours...")
+                        logging.info("transcription en cours")
+                        tps1 = time.time()
+                        threading.Thread(target=lambda: requests.get("http://192.168.252.145/rouge")).start()
+                        reponse = self.recognizer.recognize_google(
+                            audio, language='fr-FR').lower()
+                        tps2 = time.time()
+                        print("temps de reponse google : "+str(tps2-tps1)+" seconde")
+                        self.value=reponse
+                        if("sortie" in reponse.lower() or "stop" in reponse.lower() ) :
+                            break
+                        logging.info("transcription:"+reponse)
+                        print(reponse) 
+                        if not self.pause :
+                            # os.system("python3 dialog.py --input \""+reponse+"\"")
+                            self.dialog.process_init(reponse)
+                        # os.subprocess()
+                        # subprocess.Popen("python3 dialog.py --input \""+reponse+"\"", shell=True)
+                        # os.system("python3 dialog.py --input \""+reponse+"\"")
+                        print("ok")
+                        # time.sleep(1000)
+                        
+
+                    
                 except sr.RequestError:
                     reponse = "que dites vous ?"
                     logging.info("API non disponible")
@@ -116,6 +114,8 @@ class AudioRecorder():
                     reponse = "desole je n'est pas bien compris"
                     logging.info("Impossible de reconnaitre la parole")
                     #self.dialog.SpeakText(reponse)
+                except sr.WaitTimeoutError as k :
+                    print("time out")  
                 
             else : 
                 time.sleep(0.5)
