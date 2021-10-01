@@ -45,6 +45,8 @@ intents:
     use_entities: false
 - role_responsable:
     use_entities: false
+- concepteurs:
+    use_entities: false
 - salutation_avec_nom:
     use_entities: 
       - nom
@@ -127,6 +129,10 @@ responses:
   utter_mal:
   - text: Desolé, en quoi puis-je vous aider.
   - text: navré, que puis-je faire pour vous
+
+  utter_concepteurs:
+  - text: j'ai été conçu par Emmanuel Malan, Kouyaté Mohamed, Djigo Roxanne.
+
   # utter_lieu_non_trouver:
   # - text: desolé je ne sais pas ou se trouve le bureau de  {nom_respo}
   utter_telo:

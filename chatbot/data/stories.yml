@@ -66,6 +66,12 @@ stories:
   - intent: mal_tres
   - action: utter_mal
 
+- story: concepteur
+  steps:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+  - intent: concepteurs
+  - action: utter_concepteurs
+
+
 - story: ok
   steps:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
   - intent: okok

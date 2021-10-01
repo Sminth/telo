@@ -10,9 +10,16 @@ nlu:
     - bonsoir
     - bsr
     - coucou
-    - bonjour, comme  nt tu vas?
+    - bonjour, comment tu vas?
     - coucou, comment tu vas?
     - salut on dit quoi?
+
+- intent: concepteurs
+  examples: |
+    - qui sont ceux qui t'ont conçu
+    - qui sont tes réalisateurs
+    - donnes nous le nom de tes concepteurs
+    - tes auteurs
 
 
 - intent:  salutation_avec_nom
