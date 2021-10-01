@@ -118,6 +118,7 @@ class AudioRecorder():
                     print("time out") 
                 except Exception as e :
                     print("error ........")  
+                    print(e)
                 
             else : 
                 time.sleep(0.5)
