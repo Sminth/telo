@@ -13,7 +13,10 @@ from faceManager import FaceRecognition
 logging.basicConfig(filename='voice-assistant.log', level=logging.INFO)
 import signal
 import requests
-
+try :
+    os.system("amixer --quiet set Master 80")
+except:
+    pass
 f = open("../../ipVenv","r")
 # print(f.readline())
 threading.Thread(target= lambda: requests.get("http://192.168.252.145/rouge",timeout=1)).start()

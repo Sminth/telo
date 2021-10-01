@@ -22,7 +22,8 @@ new Vue({
   },
   methods: {
     setVolume(){
-      
+      axios.get("http://192.168.252.237:6400/api/volume/"+this.volume).then(function (response) { console.log(response); }).catch(function (error) { console.log(error); });
+     
     },
     depl_libre(){
       if (this.mode_deplacement) axios.get("http://192.168.252.237:6400/api/command/y").then(function (response) { console.log(response); }).catch(function (error) { console.log(error); });

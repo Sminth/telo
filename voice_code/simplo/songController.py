@@ -26,6 +26,8 @@ class SongController(object):
            if(self.control== "pause"):
                #self.player.pause()
                mixer.music.pause()
+               try: os.system("amixer --quiet set Master 80")
+               except: pass
 
            elif self.control == "play" :
                
@@ -33,6 +35,8 @@ class SongController(object):
                if mixer.music.get_busy() == 1: pass
 
                else :
+                   try: os.system("amixer --quiet set Master 50")
+                   except: pass
                    mixer.music.load(random.choice(self.files))
                    mixer.music.play()
                    self.a_deja_jouer =1
