@@ -108,6 +108,9 @@
                         Tout arrêter
                     </label> -->
                 </div>
+                 <br>
+                 <div class="value"><span  v-text="volume">0</span><span> %</span></div>
+                <input v-on:change="setVolume" v-model="volume" class="mt-4" type="range" min="0" max="100" step="5" > <br>
             </div>
             <button type="button" class="btn btn-outline-dark"  v-on:click='lol'>stop all</button>
 <br><br>
@@ -197,6 +200,8 @@
       
         </div>
       </div>
+
+    
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>

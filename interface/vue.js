@@ -15,11 +15,15 @@ new Vue({
       droite: 0,
       message_erreur: "",
       message: "",
-      msg_prg: ""
+      msg_prg: "",
+      volume : 50,
     }
 
   },
   methods: {
+    setVolume(){
+      
+    },
     depl_libre(){
       if (this.mode_deplacement) axios.get("http://192.168.252.237:6400/api/command/y").then(function (response) { console.log(response); }).catch(function (error) { console.log(error); });
 

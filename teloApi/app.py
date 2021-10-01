@@ -1,4 +1,5 @@
 #!flask/bin/python
+import os
 from flask import Flask, jsonify, abort, make_response, request
 from .connect import get_db, make_dicts
 from .sql_script import create_table
@@ -54,6 +55,9 @@ def sendToArduino(direction):
     time.sleep(0.5)
     #print(serialcomm.readline().decode('ascii'))
     
+@app.route('/api/volume/<volume>', methods=['GET'])
+def setVolumeSystem(volume):
+    os.system("amixer --quiet set Master "+volume)
 
 @app.route('/api/create_table', methods=['GET'])
 def create_table_():
