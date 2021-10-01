@@ -97,11 +97,12 @@ slots:
 
 responses:
   utter_bjr:
-  - text: Bonjour,bienvenue à l'orange digital center. Je suis telo votre assistant. Je suis à votre disposition pour vous guider dans l'enceinte de l'ODC, pour vous informer sur ses sections et ses activités. Votre nom s'il vous plaît ?
+  # - text: Bonjour,bienvenue à l'orange digital center. Je suis telo votre assistant. Je suis à votre disposition pour vous guider dans l'enceinte de l'ODC, pour vous informer sur ses sections et ses activités. Votre nom s'il vous plaît ?
+  - text: Bonjour, Je suis telo votre assistant. Quel est votre nom s'il vous plaît ?
 
   
   utter_bjr_avec_nom:
-  - text: Bonjour {nom}, bienvenue à l'orange digital center. Je suis telo votre assistant. En quoi puis-je vous aider
+  - text: Bonjour {nom}, bienvenue à l'orange digital center. Je suis telo votre assistant. En quoi puis-je vous aider ?
   
 
   utter_demande:
