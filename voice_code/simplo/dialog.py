@@ -172,7 +172,8 @@ class Dialog():
                         # sio.emit("requests-time",time,namespace='/speech')
 
         except e:
-            print(e)
+            
+            print(e.code)
             logging.error("ERROR :connection au serveur rasa impossible ")
             # sio.emit("rasa-responses",['0.5','connection au serveur rasa impossible'],namespace='/speech')
             self.response = "connection au serveur rasa impossible"
