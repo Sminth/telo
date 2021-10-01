@@ -115,7 +115,9 @@ class AudioRecorder():
                     logging.info("Impossible de reconnaitre la parole")
                     #self.dialog.SpeakText(reponse)
                 except sr.WaitTimeoutError as k :
-                    print("time out")  
+                    print("time out") 
+                except Exception as e :
+                    print("error ........")  
                 
             else : 
                 time.sleep(0.5)
