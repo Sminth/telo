@@ -36,7 +36,7 @@ const char * separators = ":";
 //VITESSE MAX A INJECTE 130
 int Vitesse0 = 0;
 int VitesseTourner = 70; 
-int VitesseNormale = 115;
+int VitesseNormale = 120;
 
 
 float Distance_Droite = 0;
@@ -289,16 +289,16 @@ obstacle();
     mode_obstacle =0;
                 }
                 else if (String(strToken) == "vnp"){
-            VitesseNormale=VitesseNormale+5;
+            VitesseNormale=VitesseNormale+2;
                 }
                 else if (String(strToken) == "vtp"){
-                  VitesseTourner=VitesseTourner+5;
+                  VitesseTourner=VitesseTourner+2;
                 }
                 else if (String(strToken) == "vtm"){
-                  VitesseTourner=VitesseTourner-5;
+                  VitesseTourner=VitesseTourner-2;
                 }
                 else if (String(strToken) == "vnm"){
-            VitesseNormale=VitesseNormale-5;
+            VitesseNormale=VitesseNormale-2;
                 }
                 else{
                  Stop();
