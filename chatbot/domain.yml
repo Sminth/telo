@@ -45,8 +45,6 @@ intents:
     use_entities: false
 - role_responsable:
     use_entities: false
-- concepteurs:
-    use_entities: false
 - salutation_avec_nom:
     use_entities: 
       - nom
@@ -99,18 +97,25 @@ slots:
 
 responses:
   utter_bjr:
-  # - text: Bonjour,bienvenue à l'orange digital center. Je suis telo votre assistant. Je suis à votre disposition pour vous guider dans l'enceinte de l'ODC, pour vous informer sur ses sections et ses activités. Votre nom s'il vous plaît ?
-  - text: Bonjour, Je suis telo votre assistant. Quel est votre nom s'il vous plaît ?
+  - text: Bonjour, bienvenue à l'orange digital center. Je suis telo votre assistant. Votre nom s'il vous plaît ?
 
   
   utter_bjr_avec_nom:
-  - text: Bonjour {nom}, bienvenue à l'orange digital center. Je suis telo votre assistant. En quoi puis-je vous aider ?
+  - text: Bonjour {nom}, bienvenue à l'orange digital center.
   
 
   utter_demande:
   - text: Je vais bien merci. En quoi puis-je vous aider ?
   utter_aurevoir:
   - text: Aurevoir, à bientôt.
+  utter_simple_salut: 
+  - text: Bonjour .
+
+  utter_innforme_section: 
+  - text: vous voudriez peut-être en savoir plus sur l'orange digital center, ou l'orange  Fab, ou l'Orange Ventures ou encore le FabLab solidaire ? je vous ecoute.
+  utter_informe: 
+  - text: Je suis Telo. je peux vous informer sur les differentes sections de l'orange digital center. sur les differents responsables. je peux vous indiquer le bureau d'un responsable. En quoi puis-je vous aider ?
+
   utter_simple_salutations:
   - text: D'accord Merci.
   - text: Merci, c'est gentil.
@@ -129,10 +134,6 @@ responses:
   utter_mal:
   - text: Desolé, en quoi puis-je vous aider.
   - text: navré, que puis-je faire pour vous
-
-  utter_concepteurs:
-  - text: j'ai été conçu par Emmanuel Malan,Djigo Roxanne,Mohamed Kouyaté, Latifate Kaboré, Sandé Oscar et N'guetta marc aurel.
-
   # utter_lieu_non_trouver:
   # - text: desolé je ne sais pas ou se trouve le bureau de  {nom_respo}
   utter_telo:

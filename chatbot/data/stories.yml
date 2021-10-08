@@ -4,11 +4,13 @@ stories:
 - story: salutation avec reponses
   steps:
   - intent: salutations
-  - action: utter_bjr
-  - action: recuperation_du_form
-  - active_loop: recuperation_du_form
-  - active_loop: null
-  - action: utter_reso
+  - action: utter_simple_salut
+  - action: utter_informe
+#  - action: utter_bjr
+#  - action: recuperation_du_form
+#  - active_loop: recuperation_du_form
+#  - active_loop: null
+#  - action: utter_reso
  
 
 # - story: cava
@@ -21,7 +23,7 @@ stories:
   - intent: salutation_avec_nom
   # - action: utter_bjr_avec_nom
   - action: avec_nom
-
+  - action: utter_informe
 
 - story: presentation des responsable
   steps:
@@ -65,12 +67,6 @@ stories:
   steps:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
   - intent: mal_tres
   - action: utter_mal
-
-- story: concepteur
-  steps:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
-  - intent: concepteurs
-  - action: utter_concepteurs
-
 
 - story: ok
   steps:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
@@ -176,7 +172,7 @@ stories:
   steps:
   - intent: odc_programme
   - action: utter_programme
-  # - action: utter_programme
+  - action: utter_innforme_section
 
 # - story: fab
 #   steps:
