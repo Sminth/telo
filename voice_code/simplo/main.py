@@ -15,13 +15,15 @@ import signal
 import requests
 try :
     os.system("amixer --quiet set Master 80")
+    f = open("../../ipVenv","r")
+    fl = open("../../ipLed","r")
 except:
     pass
-f = open("../../ipVenv","r")
+
 # print(f.readline())
 
 
-#threading.Thread(target= lambda: requests.get("http://192.168.252.145/rouge",timeout=1)).start()
+threading.Thread(target= lambda: requests.get('http://'+fl.read()+"/rouge",timeout=1)).start()
 # requests.get("http://10.106.5.135/bad",timeout=1)
 
 #Connect to Socket

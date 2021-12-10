@@ -26,12 +26,14 @@ class AudioRecorder():
         
         self.th=threading.Thread(target=lambda : self.recognize_speech_from_mic()).start()
     
-
+        try: self.fl = open("../../ipLed","r")
+        except: pass
     def verif_ecoute(self):
         while 1:
             time.sleep(0.3)
             try:
                  with open("is_lecture", "r") as f : self.pause = eval(f.read())
+                 
             except:
                  self.pause = False
 
@@ -68,7 +70,7 @@ class AudioRecorder():
                 print("Je vous écoute...")
                 try:
                     with self.microphone as source:
-                        #threading.Thread(target= lambda: requests.get("http://192.168.252.145/vert",timeout=1)).start()
+                        threading.Thread(target= lambda: requests.get('http://'+self.fl.read()+"/vert",timeout=1)).start()
                         if self.pause : pass
                         else:
                             self.recognizer.adjust_for_ambient_noise(source, duration=1)
@@ -84,7 +86,7 @@ class AudioRecorder():
                         print("transcription en cours...")
                         logging.info("transcription en cours")
                         tps1 = time.time()
-                        #threading.Thread(target=lambda: requests.get("http://192.168.252.145/rouge")).start()
+                        threading.Thread(target=lambda: requests.get('http://'+self.fl.read()+"/rouge")).start()
                         reponse = self.recognizer.recognize_google(
                             audio, language='fr-FR').lower()
                         tps2 = time.time()

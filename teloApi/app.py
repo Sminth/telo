@@ -59,6 +59,12 @@ def sendToArduino(direction):
 def setVolumeSystem(volume):
     os.system("amixer --quiet set Master "+volume)
     return "OK"
+
+@app.route('/api/setIpLed/<ip>', methods=['GET'])
+def setIpLed(ip):
+    with open("../ipLed", "w") as f : f.write(ip)
+    return "OK"
+    
 @app.route('/api/create_table', methods=['GET'])
 def create_table_():
     create_table()
