@@ -59,7 +59,7 @@ if __name__ == "__main__":
     dialog = Dialog()
     # dialog.SpeakText("je parle hum, attention")
     # print("a parler")
-    audio_recorder = AudioRecorder(dialog)
+    audio_recorder = AudioRecorder(dialog,fl.read())
     face = FaceRecognition(audio_recorder)
     song = SongController()
     #main()

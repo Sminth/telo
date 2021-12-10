@@ -12,7 +12,7 @@ import subprocess
 from dialog import Dialog
 
 class AudioRecorder():
-    def __init__(self, dialog):
+    def __init__(self, dialog, ip):
         super(AudioRecorder, self).__init__()
         self.value = "inconnu"
         self.dialog = dialog
@@ -26,10 +26,8 @@ class AudioRecorder():
         
         self.th=threading.Thread(target=lambda : self.recognize_speech_from_mic()).start()
     
-        try: 
-            self.fl = open("../../ipLed","r")
-            print(self.fl)
-        except: pass
+        self.fl = ip
+      
     def verif_ecoute(self):
         while 1:
             time.sleep(0.3)
