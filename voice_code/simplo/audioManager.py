@@ -26,7 +26,9 @@ class AudioRecorder():
         
         self.th=threading.Thread(target=lambda : self.recognize_speech_from_mic()).start()
     
-        try: self.fl = open("../../ipLed","r")
+        try: 
+            self.fl = open("../../ipLed","r")
+            print(self.fl)
         except: pass
     def verif_ecoute(self):
         while 1:
