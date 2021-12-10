@@ -68,7 +68,7 @@ class AudioRecorder():
                 print("Je vous écoute...")
                 try:
                     with self.microphone as source:
-                        threading.Thread(target= lambda: requests.get("http://192.168.252.145/vert",timeout=1)).start()
+                        #threading.Thread(target= lambda: requests.get("http://192.168.252.145/vert",timeout=1)).start()
                         if self.pause : pass
                         else:
                             self.recognizer.adjust_for_ambient_noise(source, duration=1)
@@ -84,7 +84,7 @@ class AudioRecorder():
                         print("transcription en cours...")
                         logging.info("transcription en cours")
                         tps1 = time.time()
-                        threading.Thread(target=lambda: requests.get("http://192.168.252.145/rouge")).start()
+                        #threading.Thread(target=lambda: requests.get("http://192.168.252.145/rouge")).start()
                         reponse = self.recognizer.recognize_google(
                             audio, language='fr-FR').lower()
                         tps2 = time.time()
